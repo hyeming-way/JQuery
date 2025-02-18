@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 주제 : 요소명(태그명)선택자와 그룹선택자 , 를 사용한 예 -->
+	
+	<!-- JQUREY문법 사용하기 위한 CDN주소 작성 -->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+	<h1>제이쿼리</h1>
+	<h1>제이쿼리2</h1>
+	<h2>선택자</h2>
+	<h3 id="3">직접선택자</h3>
+	
+	<script>
+		//요소명(태그명)선택자 이용하여 모든 <h1>요소들을 선택
+		$("h1").css("color", "red");
+		
+		//그룹선택자(다중선택자) , 기호를 이용하여 여러 HTML태그들을 다중 선택
+		//문법	$("선택자종류1, 선택자종류2");
+		$("h2, #3").css("border", "2px dotted blue");
+	
+	
+	</script>
+
+</body>
+</html>

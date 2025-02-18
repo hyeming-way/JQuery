@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<!-- 주제 : script선언문의 선언 위치에 따라
+				  Jquery 선택자를 이용해 DOM요소 선택 가능 여부가 결정된다. -->
+				  
+		<!-- 설치방법2. JQUERY설치 CDN주소 이용 -->
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>	
+		
+		<!-- 1. 선언문 작성 위치가 <body></body>내부에 작성된 DOM요소들보다 위쪽에 작성된 경우 
+				이벤트 등록 기능을 사용하지 않으면 DOM 선택 불가능 -->	 
+		<script>
+			// 자바스크립트 문법
+			// document.getElementById("title").style.color="red";
+			
+			// 제이쿼리의 # 아이디 선택자 기호로 선택
+			// 문법 $("#id속성값");
+			// 1. $("#") 	 <--- id속성이 포함된 요소를 선택해오는데
+			// 2. $("#title") <--- id속성의 값이 title인 h1요소를 선택해온다.
+			// $("#title").css("color", "red");
+		</script>	
+		
+		<!-- 
+			위 1. 을 가능하게 하려면? 윈도우창(웹브라우저창) 정보를 가지고 있는 window객체에
+								load이벤트 등록 구문을 작성해 놓으면
+								선언문 <script></script>의 선언위치 상관없이
+								웹브라우저가 웹문서의 모든 DOM을 로딩한 상태에서 <h1>요소를 선택해 올 수 있음.
+		 -->
+		 <script>
+		 
+		 	//자바스크립트 문법을 이용해 window객체에 load이벤트 등록
+		 	//문법	window.onload = function(){}
+		 	
+		 	/*
+		 	window.onload = function(){
+		 		
+		 		//아이디 선택자 getElementById메소드를 이용해
+		 		//<h1>요소를 선택해오고 스타일을 정의할 수 있다.
+		 		document.getElementById("title").style.color="red";
+		 		
+		 	}
+		 	*/
+		 	
+//---------------------------------------------------------------------------------------------------
+
+			/*
+		 		제이쿼리 문법
+		 		웹브라우저창(window객체)에 load이벤트 등록방법 1
+		 	
+		 		해석 : 웹브라우저가 jq_sample1.html1 웹문서에 작성된 모든 HTML태그들을 로딩한 상태가 되면
+		 		     function 콜백함수가 자동으로 호출되어 실행되게 선언
+		 	
+		 		$(document).ready(function(){ 선택자를 이용해 DOM을 선택해오고 스타일 정의 });
+		 	*/
+		 	
+		 	/*
+		 		$(document).ready(function(){
+		 			
+		 			//id속성값이 title인 <h1>요소 한쌍을 선택해서 가져와
+		 			//글자 색상을 빨간색으로 설정
+		 			$("#title").css("color", "red");
+		 			
+		 		});
+		 	*/
+		 	
+		 	
+		 	
+		 	/*
+		 		제이쿼리 문법
+		 		웹브라우저창(window객체)에 load이벤트 등록방법 2
+		 		
+		 		$(function(){선택자를 이용해 DOM을 선택해오고 스타일 정의});
+		 	*/
+		 	/*
+		 		$(function(){
+		 			
+		 			$("#title").css("color", "aqua");
+		 			
+		 		});
+		 	*/
+		 
+		 </script>
+	</head>
+	<body>
+		<h1 id="title" class="h">제목</h1>
+		
+		<!-- 
+			2. 선언문 작성 위치가 <h1> DOM요소보다 아래에 작성되어 있으면
+		 	      당연히 웹브라우저가 <h1> DO를 미리 읽어서 보관해 둔 상태에서 <h1> DO를 선택해 옵니다.
+		 	      그러니 load이벤트를 웹브라우저창(window객체)에 등록하지 않아도 선택해올 수 있습니다.
+		 -->
+		 
+		 <script>
+		 
+		 	//자바스크립트 문법
+		 	document.getElementById("title").style.color = "red";
+		 	
+		 	//제이쿼리 문법
+		 	$("#title").css("backgroundColor", "aqua");
+		 
+		 </script>
+		
+		
+		
+		
+		
+	
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- 주제 : 종속선택자 문법을 이용해 선택한 요소의 id속성에 대한 값 또는 class속성에 대한 값이 일치하는 요소를 선택하는 예 -->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+	<h1>나도 데려가줘</h1>
+	<h1 class="tit">제이쿼리</h1>
+	<h2 id="a">선택자</h2>
+	<h2>선택자2</h2>
+	<h3 class="tit">직접선택자</h3>
+	
+	<script>
+		/*
+			종속선택자식 문법
+				$("요소명#id속성값"); 또는  $("요소명.class속성값");
+		*/
+		$("h1.tit").css("color", "yellow");
+		
+		//<h2>요소들을 모두 선택해오는데 그 중 id속성의 값이 a인 <h2>요소하나만 최종 선택하여 
+		//텍스트 색상을 빨간색으로 설정
+		$("h2#a").css("color", "red");
+	
+		//자바스크립트 문법을 사용하여 텍스트를 빨간색으로 설정
+		//document.querySelectorAll("h2")[0].style.color = "red";
+	
+	
+	</script>
+
+</body>
+</html>

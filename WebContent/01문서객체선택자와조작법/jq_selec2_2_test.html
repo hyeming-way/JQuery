@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>
+
+<!-- 
+	탐색선택자 중에서  위치탐색 선택자  
+		
+		종류   -> even 선택자, odd선택자 
+		
+		even 선택자
+		-  선택한 요소들은 배열에 저장되므로 
+		     배열에 저장된 모든 요소들중에서도  
+			짝수 index번호 위치에 저장된 요소들만 최종 선택    
+		- 문법
+				$("요소들선택:even")
+		
+		odd 선택자
+		- 선택한 요소들은 배열에 저장되므로 
+		  배열에 저장된 모든 요소들중에서도  
+			홀수 index번호 위치에 저장된 요소들만 최종 선택    
+		- 문법
+				$("요소들선택:odd")
+		
+ -->
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+$(function(){	
+	//id속성값이 menu인  <ul></ul>한쌍을 선택해오고
+	//이 <ul>요소를 기준으로  후손li요소들을 배열에 담아 배열로 선택해 오는데
+	//배열에 저장된 li요소들 중에서도  index위치가 짝수 인 공간에 저장된  후손 li요소들을 최종 선택
+	//선택해온 li요소들 영역의 배경색을  aqua색으로 설정
+	$("#menu li:even").css("background-color","aqua");
+	
+		
+	//id속성값이 menu인  <ul></ul>한쌍을 선택해오고
+	//이 <ul>요소를 기준으로  후손li요소들을 배열에 담아 배열로 선택해 오는데
+	//배열에 저장된 li요소들 중에서도  index위치가 홀수 인 공간에 저장된  후손 li요소들을 최종 선택
+	//선택해온 li요소들 영역의 배경색을  pink색으로 설정
+	$("#menu li:odd").css({"background-color":"pink"});
+	
+}); 
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+

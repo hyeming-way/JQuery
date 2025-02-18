@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	주제 : 형(이전)요소 선택자 prev()와 
+		   동생(다음)요소 선택자 next()	+	사용한 예
+ -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>인접관계선택자</h1>
+		<p>내용1</p>
+		<p class="txt">내용2</p>
+		<p>내용3</p>
+		<p>내용4</p>
+	</div>
+	<script>
+	/*
+		형(이전)요소 선택자
+		- 선택한 요소를 기준으로 바로 이전형제 요소만 선택하는 선택자 prev()
+		- 문법
+				$("기준요소선택").prev()
+				
+		동생(다음)요소 선택자
+		- 선택한 요소를 기준으로 바로 다음 형제 요소만 선택하는 선택자 next() , +
+		- 문법
+				$("기준요소선택").next()
+				또는
+				$("기준요소선택 + 바로다음에 적힌 선택해올 형제요소선택")
+	*/
+	
+	// 객체 2개 생성
+	// 각 객체 내부에 css스타일의 속성명에 대한 값들을 설정
+	let style_1 = {"background-color":"aqua", "border":"2px solid red"};
+	let style_2 = {"background-color":"yellow", "border":"2px dashed red"};
+	
+	
+	// 기준요소로 class속성값이 txt인 <p>를 선택해오고
+	// 이 p를 기준으로 prev()를 이용해 이전 요소인 <p>내용1</p>을 최종 선택해
+	// style_1변수에 저장된 스타일 적용
+	// $(".txt").prev().css(style_1);
+	
+	// 기준요소로 class속성값이 txt인 <p>를 선택해오고
+	// 이 p를 기준으로 + 다음(동생)요소선택자를 이용해
+	// 바로 다음에 작성한 p요소 최종 선택해 style_2 스타일 적용
+	// $(".txt+p").css(style_2);
+	
+	// 기준요소로 class속성값이 txt인 <p>를 선택해오고
+	// 다음 다음에 만들어져 있는 동생요소인 <p>내용4</p>를 최종 선택해 style_2 스타일 적용
+	$(".txt").next().next().css(style_2);
+	
+	
+	
+	
+	
+	</script>
+
+
+</body>
+</html>

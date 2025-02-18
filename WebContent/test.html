@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 다운로드 받은 js폴더 내부에 있는 jquery-3.7.1.min.js경로를 작성해
+	JQUERY문법을 사용할 수 있게 해준다. 
+	<script src="js/jquery-3.7.1.min.js"></script>
+	-->
+	
+	<!-- CDN 주소를 복사해서 JQUERY 최신 문법을 사용할 수 있게 해준다. -->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+	<h1>자바스크립트</h1>
+	<h1 id="h1">자바스크립트2</h1>
+
+	<h2>제이쿼리</h2>
+	<h2 id="h2">제이쿼리2</h2>
+
+	<script>
+		//1. 자바스크립트 문법의 선택자 종류 중에서
+		//   태그명 선택자 -> getElementsByTagName()메소드 이용	-> 배열로 담아서 가져옴
+		let h1Object = document.getElementsByTagName("h1")[0]; //<h1>자바스크립트</h1>
+		console.log(h1Object);
+		
+		//2. 자바스크립트 문법의 선택자 종류 중에서
+		//   id 선택자 -> getElementById()메소드 이용
+		let h1Object2 = document.getElementById("h1"); //<h1 id="h1">자바스크립트2</h1>
+		console.log(h1Object2);
+		
+		
+		
+		/*
+			제이쿼리 기본 선택자 문법
+			
+				$("선택자종류의문법")
+		
+			1. 제이쿼리 문법의 선택자 종류에서 태그명 선택자 이용
+				$("태그명")
+		*/
+		
+		//$("h2") : [ <h2>제이쿼리</h2>, <h2 id="h2">제이쿼리2</h2> ] 배열로 가져옴
+		console.log( $("h2")[0]); //<h2>제이쿼리</h2>
+		
+		//id선택자 문법	$("#id속성값")
+		let newH2 = $("#h2")[0]; // 배열로 가져옴
+		console.log(newH2); //<h2 id="h2">제이쿼리2</h2>
+		
+
+	</script>
+
+
+</body>
+</html>

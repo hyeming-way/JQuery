@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- 
+		주제 : 직접선택자를 이용해 선택한 요소를 기준으로
+		   	   가장 가까이 작성된 상위요소를 선택하는 closest() 상위요소선택자 메소드 사용
+	 -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<div>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</div>
+	<script>
+	
+	/*
+		closest() 선택자 메소드
+		- 선택한 요소(기준이 되는 요소 선택) 자신부터 시작해서
+		    부모 요소를 거슬러 올라가며 찾고자 하는 상위요소와 일치하는 가장 가까운 요소를 찾는 선택자
+		- 문법
+				$(기준이 되는 요소 선택).closest( 찾고자 하는 상위 요소 선택 문법 );	
+	*/
+	
+		//<p class="txt1">내용</p>를 기준이 되는 요소를 선택해오고
+		//closest()메소드 - 가장 가까운 요소를 찾는 선택자를 이용해
+		//가장 근적해 있는 div상위요소만 최종 선택
+		$(".txt1").closest("div").css("border", "2px solid blue");
+	
+	
+	
+	
+	
+	</script>
+
+</body>
+</html>

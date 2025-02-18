@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<!-- 
+	탐색선택자 중에서  위치탐색 선택자  
+		
+		종류   -> eq(index) 선택자,  lt(index) 선택자,   gt(index) 선택자  
+		
+		eq(index) 선택자
+			- 선택 한 요소들 중에서  지정한 index 위치에 저장된 요소만 선택하는 선택자
+			- 문법
+				  $("요소들선택:eq(index)")   또는      $("요소들선택").eq(index)
+				  
+		lt(index) 선택자
+			- 선택한 요소들 중에서  지정한 index 위치 이전의 index위치에 저장된 요소들만 선택 하는 선택자
+			- 문법
+				  $("요소들선택:lt(index)")   
+				  
+		gt(index) 선택자
+			- 선택한 요소들 중에서 지정한 index 위치보다 큰  index위치에 저장된 요소들만 선택 하는 선택자
+			- 문법
+				  $("요소들선택:gt(index)")		  
+				  		  
+ -->
+	<h1>탐색선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>		<!-- index 0 -->
+		<li>내용2</li>		<!-- index 1 -->		
+		<li>내용3</li>		<!-- index 2 -->
+		<li>내용4</li>		<!-- index 3 -->
+		<li>내용5</li>		<!-- index 4 -->
+	</ul>
+	
+	<script>
+	
+		// id가 menu인 <ul>...</ul>을 선택해오고
+		// " "하위선택자를 이용해 모든 하위 li요소를 배열에 담아 선택해오는데
+		// :eq(index)선택자를 이용해 2 index 저장된 <li>내용3</li>을 최종선택해와 스타일 적용
+		// $("#menu li:eq(2)").css("background-color", "red");
+		// $("#menu li").eq(2).css("background-color", "yellow");
+		
+		
+		// id가 menu인 <ul>...</ul>을 선택해오고
+		// <ul>을 기준으로 후손 <li></li>요소들을 모두 배열에 담아 선택해오고
+		//<li></li>요소들 중에서도 지정한 2 index 이전 위치인 1과 0 index위치에 저장된 
+		// <li>내용2</li>, <li>내용1</li> 최종 선택해와 스타일 적용
+		$("#menu li:lt(2)").css("background-color", "pink");
+		
+		
+		// id가 menu인 <ul>...</ul>을 선택해오고
+		// <ul>을 기준으로 후손 <li></li>요소들을 모두 배열에 담아 선택해오고
+		//<li></li>요소들 중에서도 지정한 2 index 이후의 index들인
+		// <li>내용4</li>, <li>내용5</li> 최종 선택해와 스타일 적용
+		$("#menu li:gt(2)").css("background-color", "aqua");
+	
+	
+	</script>
+
+
+
+</body>
+</html>

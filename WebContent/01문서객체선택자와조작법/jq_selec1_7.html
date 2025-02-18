@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	
+	<!-- 주제 : 인접관계 선택자 종류 중에서 부모요소선택자 - parent()메소드 사용 -->
+	
+	<h1>인접관계 선택자</h1>
+	<ul id="wrap">
+		<li>리스트1
+			<ul>
+				<li id="list_1">리스트1-1</li>
+				<li>리스트1-2</li>
+			</ul>
+		</li>
+		<li>리스트2</li>
+		<li>리스트3</li>
+	</ul>
+	
+	<script>
+	
+		/*
+			부모요소선택자 - parent()메소드
+			- 선택한 요소를 감싸고 있는 바로 한 단계 위의 부모요소를 최종 선택하는 선택자
+			- 문법
+					$("요소선택").parent();
+		*/
+		
+		//id속성값이 list_1인 하위 안 쪽 <li id="list_1">리스트1-1</li> 먼저 선택해오고
+		//.parent()부모요소선택자 메소드를 호출해
+		//선택한 li를 감싸고 있는 근거리에 있는 <ul>부모 요소를 최종 선택
+		$("#list_1").parent().css("border", "2px dashed red");
+	
+	</script>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+
+<!-- 
+	탐색선택자 중에서  위치탐색 선택자  
+	
+		종류 ->  only-child ,  slice(index) 선택자
+		
+		
+		only-child
+			-  요소들을 먼저 선택하고 
+			      선택한 요소가  부모요소에 하나뿐인 자식요소인 경우에만 선택하는 선택자
+			- 문법
+				 $("요소들선택:only-child")
+				 
+		slice(startIndex, endIndex)
+			-  요소들을 먼저 선택하고 선택한 요소들 중에서  
+			    index위치로 지정 구간 index위치에 저장된 요소들을 선택하는 선택자
+			- 문법
+				 $("요소들선택").slice(startIndex, endIndex)			 
+			    예)		     .slice(1,           3)   
+			  				 ->  1 이상  3미만  index에 위치한 요소들을 선택함. 
+ -->
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<script>
+$(function(){
+	
+	//<li>내용1-2</li>	  <!--  1 -->
+	//<li>내용1-3</li>     <!--  2 -->
+	$("#menu1 li").slice(1,3).css("background-color","red");
+
+	//모든 <li>요소들 중에서 ~~~   선택할 <li>요소가 부모<ul>요소에 하나뿐인 자식요소이면 선택합니다. 
+	$("li:only-child").css("background-color","blue");
+});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+			<li>내용1-1</li>   <!--  0  -->
+			<li>내용1-2</li>	  <!--  1 -->
+			<li>내용1-3</li>   <!--  2 -->
+			<li>내용1-4</li>   <!--  3 -->
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+	</ul>
+</body>
+</html>
+
+
+

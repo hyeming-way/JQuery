@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title> 선택자 </title>  
+		<!-- 
+				탐색선택자 중에서  위치탐색 선택자  
+		
+				종류   ->  nth-child(숫자) 또는 nth-child(숫자n)  , nth-last-of-type(숫자)   선택자 
+				
+				
+				nth-child(숫자)
+					- 선택한 요소들 중에서  지정한 숫자에 위치한 요소를 선택
+					- 문법
+						 $("요소들선택:nth-child(숫자)")
+						 
+				nth-child(숫자n)
+					- 선택한 요소들 중에서 지정한 숫자배수에 위치한 요소를 선택 
+					- 문법
+						 $("요소들선택:nth-child(숫자n)") 
+				
+				nth-last-of-type(숫자)
+					- 선택한 요소들 중에서 마지막 위치에서 ~~~ 
+					  거꾸로 탐색을 하는데  지정한 숫자만큼 거꾸로 탐색한 최종 요소를 선택
+					- 문법
+						 $("요소들선택:nth-last-of-type(숫자)")
+		
+		 -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script>
+		$(function(){
+			
+			// #menu1 li  <-  id="menu1"인 <ul> 내부의 모든 <li>후손요소들을 배열에 담아 선택하는데
+			// #menu1 li:nth-child(1)   <- 배열에 담긴 <li>후손요소들 중에서도  첫번째 <li>요소만 최종 선택 해 옴 
+			//<li>내용1-1</li>
+//			$("#menu1 li:nth-child(1)").css("background-color","red");
+
+
+
+			// #menu1 li  <-  id="menu1"인 <ul> 내부의 모든 <li>후손요소들을 배열에 담아 선택하는데
+			// #menu1 li:nth-child(2n)  <- 배열에 담긴 <li>후손요소들 중에서도 2의 배수번째에 위치한  2번째 4번째 <li>요소들을 최종 선택해옴 
+			//<li>내용1-2</li>     <li>내용1-4</li>
+//			$("#menu1 li:nth-child(2n)").css("background-color","pink");		
+			
+			// id속성값이 menu2인  <ul>요소를 선택해 오고 
+			// <ul>요소를 기준으로 후손 <li>들을 배열에 담아 선택해 오는데
+			// <li>요소들 중에서도 3의 배수번째에 위치한 <li>요소들을 최종 선택해옴
+//		    $("#menu2 li:nth-child(3n)").css("background-color","green");		
+			
+		/*	
+
+			<ul id="menu2">
+				<li>내용2-1</li>
+				<li>내용2-2</li>
+				<li>내용2-3</li>
+			</ul>
+		*/		
+			//nth-last-of-type(숫자) 위치탐색 선택자는 
+			//앞에서 선택한 모든 li중에서  거꾸로 위치를 세어  지정한 숫자의 위치에 있는 <li>내용2-2</li>를 최종 선택해옴 
+//   		$("#menu2 li:nth-last-of-type(2)").css("background-color","blue");	
+			$("#menu2 li:nth-last-child(2)").css("background-color","blue");	
+			
+
+			
+		});
+		</script>
+	</head>
+	<body>
+			<h1>탐색 선택자</h1>
+			<ul id="menu1">
+				<li>내용1-1</li>
+				<li>내용1-2</li>
+				<li>내용1-3</li>
+				<li>내용1-4</li>
+			</ul>
+			<ul id="menu2">
+				<li>내용2-1</li>
+				<li>내용2-2</li>
+				<li>내용2-3</li>
+			</ul>
+	</body>
+</html>
+
+
+
+
+

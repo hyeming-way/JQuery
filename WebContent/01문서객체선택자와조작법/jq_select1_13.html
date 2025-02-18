@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<!-- 주제 : 범위 제한 전체형 요소 선택자 prevUntil()와   
+            범위제한 전체 동생요소선택자  nextUntil() 사용한 예제   -->
+
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+</head>
+<body>
+	<div id="wrap">
+		<h1>나도 선택해줘</h1>
+		<h1 class="title">선택자</h1>
+		<p>내용1</p>	
+		<p>내용2</p>
+		<p class="txt3">내용3</p>
+		<p>내용4</p>
+		<p>내용5</p>
+		<p class="txt6">내용6</p>	
+	</div>
+	<script>		
+		//객체 1개 생성
+		//객체 내부에는 css스타일의 속성명에 대한 값들이 설정되어 있습니다.
+		var style_1 = {  "background-color":"aqua",  "border":"2px solid red" }
+		
+		//class=txt3인 <p class="txt3">내용3</p>요소를 기준요소로 선택해 오고 
+		//prevUntil메소드(범위 제한 전체 형 선택자)를 호출하여 
+		//class=title인  <h1 class="title">선택자</h1>형 요소 이전 범위에 있는
+		//<p>내용1</p>형 요소와 <p>내용2</p>를 최종 선택
+		$(".txt3").prevUntil(".title").css(style_1);
+	
+	//	$(".txt3").nextUntil(".txt6").css(style_1);
+	
+	
+	
+		/*
+			범위 제한 전체 형 요소 선택자  prevUntil("범위 제한 요소선택")
+			- 이 선택자는 선택한 요소를 기준으로 형제 요소중에서  
+			  지정한 범위 내의 전체 형제요소들을 선택하는 선택자
+			- 문법
+				$("기준요소선택").prevUntil("범위 제한 요소선택")
+				의미 : 선택한 요소를 기준으로 범위 제한 요소이전까지 전체 형 요소를 선택합니다.
+				
+		   		
+			범위 제한 전체 동생 요소 선택자  nextUntil("범위 제한 요소선택")
+			- 이 선택자는 선택한 요소를 기준으로 형제 요소중에서  지정한 범위 내의 전체 형제요소들을 선택하는 선택자
+			- 문법
+				$("기준요소선택").nextUntil("범위 제한 요소선택")
+				의미 : 선택한 요소를 기준으로 범위 제한 요소이전까지 전체 동생(다음) 요소를 선택합니다.
+				
+		
+		*/
+		
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

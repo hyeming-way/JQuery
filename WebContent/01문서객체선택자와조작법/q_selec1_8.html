@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- 
+		주졔 : 인접관계 선택자 종류 중에서 하위요소 모두를 선택하는 " "를 사용한 예
+	 -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>인접관계 선택자</h1>
+		<p>내용1</p>
+		<section>
+			<h1>하위요소선택자</h1>
+			<p>내용2</p>
+		</section>
+	</div>
+	<script>
+	/*
+		하위요소 선택자 " "
+		- 기준요소선택1로 선택한 요소의 모든 하위요소(자식+후손)를 모두 선택하는
+		  " "빈공백(하위요소선택)을 말함
+		- 문법
+				$("기준요소선택1 선택할하위요소선택문법")
+	*/
+	
+		//<div id="wrap">...</div>를 기준요소선택1자리에 선택해오고
+		//<div>를 기준으로 안쪽에 작성된 모든 하위요소들을 선택할 때 " "하위요소 선택자를 사용하는데
+		//h1요소명 선택자를 이용해 바로 인접한 <h1>자식요소 뿐만 아니라
+		//<section>요소 내부에 만들어져있는 <h1>손자요소까지 모두 선택해옵니다.
+		//즉, 처음 선택한 <div>를 기준으로 안쪽 모든 후손<h1>모두를 선택해옵니다.
+		$("#wrap h1").css({
+							"backgroundColor": "yellow",
+							"border": "2px dashed red"
+						});
+	
+	
+	</script>
+</body>
+</html>

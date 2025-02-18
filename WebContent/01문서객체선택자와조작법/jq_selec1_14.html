@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<section>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<p class="txt2">내용</p>
+		</div>
+	</section>
+	
+<script>
+	/*
+		상위요소선택자 - parents() 메소드
+		- 선택한 요소를 기준으로 선택한 요소를 감싸고 있는 모든 상위요소를 선택하거나
+		    상위요소 중 최종 선택하고자하는 상위요소만 선택할 수 있는 선택자.
+		    
+		문법1.
+				$("기준요소선택").parents();
+		- 선택한 요소를 기준으로 상위요소들을 모두 선택해옵니다.
+		
+		문법2.
+				$("기준요소선택").parents("최종 선택하고자 하는 상위요소 선택");
+		- 선택한 요소를 기준으로 상위요소들 중에서 최종 선택하고자 하는 상위요소만 선택해옵니다.
+	*/
+	
+	//<p class="txt1">내용</p> 기준요소를 먼저 선택해오고
+	//선택해 온 <p>요소를 기준으로 감싸고 있는 모든 상위요소들을 선택해오고 스타일 정의
+	$(".txt1").parents().css("border", "2px dashed red");
+	
+	//<p class="txt2">내용</p> 기준요소를 먼저 선택해오고
+	//선택해 온 <p>요소를 기준으로 감싸고 있는 바로 위 <div>한 쌍만 선택해오고 스타일 정의
+	$(".txt2").parents("div").css("border", "4px dotted blue");
+	
+	
+	
+	
+
+</script>
+</body>
+</html>

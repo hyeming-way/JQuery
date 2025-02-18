@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<!--
+      탐색택자 중에서 위치탐색선택자
+      
+      종류 -> :first  ,  :last 
+
+      :first 선택자 사용 문법
+
+          1.  $("요소선택:first")
+               요소들을 선택해와서 :first선택자를 이용해
+               요소들중에서도 첫번째에 작성된 요소 하나만 탐색해서
+               최종 선택합니다
+          
+          2.  $("요소선택").first()   
+               요소들을 선택해와서 .first()를 이용해
+               요소들중에서도 첫번째에 작성된 요소 하나만 탐색해서
+               최종 선택합니다
+      
+
+      :last 선택자 사용 문법
+
+          1.  $("요소선택:list")
+               요소들을 선택해와서 :last선택자를 이용해
+               요소들중에서도 마지막에 작성된 요소 하나만 탐색해서
+               최종 선택합니다
+          
+          2.  $("요소선택").last()   
+               요소들을 선택해와서 .last()를 이용해
+               요소들중에서도 마지막에 작성된 요소 하나만 탐색해서
+               최종 선택합니다
+
+-->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function(){
+        //id=menu인 ul요소를 선택해오고
+        //ul요소를 기준으로해서 모든 후손 li요소들을 선택해 옵니다
+        //li요소들 중에서도 첫번쨰로 작성된 li요소 하나만 최종 선택
+        //:first
+     //$("#menu li:first").css( {"background-color":"aqua"} );
+
+       $("#menu li").first().css("background-color","aqua");
+
+       //id=menu인 ul요소를 선택해서 가져오고
+       //선택한 ul요소를 기준으로 모든 후손 li요소들을 배열에 담아
+       //선택해 옵니다. li요소들 중에서도 마지막에 작성된 li후손요소하나만
+       //최종 선택해서 가져옵니다.
+     //$("#menu li:last").css("background-color","pink");
+
+       $("#menu li").last().css("background-color","yellow");
+  
+      });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
