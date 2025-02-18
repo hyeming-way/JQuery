@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script>
+		
+		//배열생성
+		const arr1 = ["apple", "banana", "orange"];
+		const arr2 = ["grape", "lemon", "peach"];
+		
+		//배열병합
+		//새 배열을 const mergedArr 상수에 저장
+		const mergedArr = $.merge(arr1, arr2);
+		
+		//mergedArr상수에 저장된 배열 정보 출력
+		console.log(mergedArr);
+		//mergedArr = ["apple", "banana", "orange", "grape", "lemon", "peach"]
+		
+		
+		
+		//배열요소검색
+		//mergedArr배열에서 "lemon"문자열이 저장되어 있는지 검색
+		//검색해서 있으면? 저장된 "lemon"문자열의 index위치번호를 가져와 출력
+		const index = $.inArray("lemon", mergedArr);
+		
+		//배열요소체크
+		if(index > -1){
+			console.log("lemon is at index " + index); //lemon is at index 4
+		}
+		
+		
+		
+		//배열요소필터링
+		const filteredArr = $.grep(mergedArr, function(elem){
+			
+			return elem.indexOf('a') > -1;
+			//"apple".indexOf('a') -> index 0 반환
+			// 01234
+			//"banana".indexOf('a') -> index 1 반환
+			// 01
+			//"orange".indexOf('a') -> index 2 반환
+			// 012
+			//"grape".indexOf('a') -> index 2 반환
+			// 012
+			//"lemon".indexOf('a') -> 없으므로 -1 반환
+			//"peach".indexOf('2') -> index 2 반환
+			// 012
+			
+			/*
+				indexOf('찾을 문자열')
+				찾을 문자열이 있는 index 위치번호 반환하기때문에 
+				> -1 라는 조건식을 달아야 함.
+				찾는 문자열이 없을 경우 -1로 반환합니다.
+				
+			*/
+			
+		});
+		console.log(filteredArr);
+		//filteredArr = ["apple", "banana", "orange", "grape", "peach"]
+		
+		
+		
+		
+		//filteredArr배열에 저장된 각 문자열들을 대문자로 모두 변경후 새로운 배열에 담아 반환하기
+		//반환받은 새배열을 resultArr상수에 저장
+		
+		const resultArr = ($.map(filteredArr, function(elem){
+			
+			return elem.toUpperCase();
+			
+		}));
+		
+		console.log(JSON.stringify(resultArr));
+		//resultArr = ["APPLE", "BANANA", "ORANGE", "GRAPE", "PEACH"]
+		//JSON.stringify(배열객체메모리)함수는
+		//자바스크립트 객체를 JSON문자열(string)로 변환해서 반환하는 함수
+		
+		
+	
+		
+	
+	</script>
+
+</head>
+<body>
+</body>
+</html>

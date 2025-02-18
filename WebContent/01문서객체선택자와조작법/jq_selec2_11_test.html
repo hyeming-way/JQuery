@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 
+	탐색 선택자 종류 중에서 속성탐색 선택자 종류
+	  1. 속성과 값에 따른 탐색선택자 
+	  	 - 선택한 요소중 지정한 속성과 일치하는 속성있는지 , 없는지의 포함여부를 따져 요소를 선택하는 선택자.
+	  	 -  문법
+				1-1.  $("요소들선택[속성명]")
+	  	 		           선택한 요소들 중에서 속성명이 포함된 요소만 최종 선택함.
+
+				1-2.  $("요소들선택[속성명^=값]")
+					   선택한 요소들 중에서 속성값이 명시한 값으로 시작하는 요소만 최종 선택함.
+					  
+				1-3.  $("요소들선택[속성명$=값]")
+					   선택한 요소들 중에서 속성값이 명시한 값으로 끝나는 요소만 최종 선택함.
+			
+				1-4.  $("요소들선택[속성명*=값]")
+					   선택한 요소들 중에서 속성값을 포함하고 있는 요소만 최종 선택함.		  
+					  
+				1-5.  $(":type 속성값")
+					  input요소들 중에서 type속성값이 일치하는 요소만 선택합니다.
+					 
+ -->	
+	
+	<script>
+	
+		$(function(){
+			//id속성값이 wrap인 부모<div id="wrap"></div>먼저 선택해오고
+			//하위 a 손자요소들을 모두 배열에 담아서 선택해오는데
+			//a 손자요소들 중에서 []사이에 적은 target속성을 포함하고 있는 요소만 최종선택
+			$("#wrap a[target]").css("color", "red");
+			
+			//href속성에 대한 값이 "https"로 시작하고 있는 <a>요소만 최종선택
+			$("a[href ^= https]").css("color", "aqua");
+			
+			//href속성에 대한 값이 "net"으로 끝나고 있는 <a>요소만 최종선택
+			$("[href $= net]").css("color", "yellow");
+			
+			//href속성에 대한 값이 "co"단어가 포함되어 있는 <a>요소만 최종선택
+			$("[href *= co]").css("background-color", "pink");
+			
+		});
+
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><a href="http://easyspub.co.kr" target="_blank">EasysPub</a></p>
+		<p><a href="https://naver.com">Naver</a></p> <!-- https의 s : 기존 HTTP에 보안이 추가된 것  -->
+		<p><a href="http://google.co.kr">Google</a></p>
+		<p><a href="http://daum.net">Daum</a></p>
+	</div>
+	<form action="#" method="get" id="member_f">
+		<p>
+			<label for="user_id">아이디</label>
+			<input type="text" name="user_id" id="user_id">
+		</p>
+		<p>
+			<label for="user_pw">비밀번호</label>
+			<input type="password" name="user_pw" id="user_pw">
+		</p>
+	</form>
+	<script>
+		//input요소 중에서 type속성값이 "text"인 요소만 선택
+		//$("input[type=text]").css("backgroundColor", "green");
+		$(":text").css("backgroundColor", "green");
+		
+		//input요소 중에서 type속성값이 "password"와 완전히 일치하는 <input>요소만 최종선택
+		//$("input[type=password]").css("backgroundColor", "yellow");
+		$(":password").css("backgroundColor", "yellow");
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+
+	<script>
+		/*
+			$.grep()
+	 		- 배열에서 특정 조건을 만족하는 요소만 골라내는 필터링 메소드(함수)입니다.
+	 		   배열에서 원하는 요소만 남기고, 나머지는 제거할 때 사용합니다.
+	 		- 문법
+	 				$.grep(array, function(매개변수1, 매개변수2){
+	 				
+	 					return 조건식 또는 true 또는 false; });
+		*/
+	
+		//1~10까지 숫자들을 저장시킨 arr2배열 생성
+		let arr2 = [1,2,3,4,5,6,7,8,9,10];
+		
+		//arr2가공할 원본배열의 값들 중에서 3의 배수인 값이 있으면
+		//새로운 배열에 담아 반환합니다. 반환받은 새배열은 newArr변수에 저장
+		let newArr = $.grep(arr2, function(elem){
+
+			return elem % 3 === 0;
+		
+		});
+		
+		//newArr변수에 저장된 새배열 출력
+		console.log(newArr); // [3, 6, 9]
+		
+		//newArr변수에 저장된 새배열 요소의 총 갯수 출력
+		console.log(newArr.length); // 3
+		
+//----------------------------------------------------------------------------
+		/*
+			index메소드
+			- 직접선택자$("요소들선택").index( $("지정선택요소선택") );
+			- 해석 : $("지정선택요소선택")를 찾아서 찾은 요소의 index위치번호를 반환합니다.
+				       찾을 데이터가 없으면 -1을 반환합니다.
+		*/
+		
+		let arr = [1,2,3,4,5];
+		
+		//arr배열에 저장된 데이터중에서 3이 저장되어 있는지 찾습니다.
+		//3이 저장되어 있으면 3이 저장된 index위치 번호 2를 반환받아 출력하세요.
+		console.log( $(arr).index(3) ); // 2
+		
+		//arr배열에 저장된 데이터 중에서 100이 저장되어 있는지 찾습니다.
+		//100이 저장되어 있으면 100이 저장된 index위치 번호를 반환하지만
+		//없으므로 -1을 반환합니다.
+		console.log( $(arr).index(100) ); // -1
+	
+	</script>
+
+
+</body>
+</html>

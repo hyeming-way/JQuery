@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	
+	<!-- 
+		배열관련 메소드 종류
+		
+		index메소드
+		- 직접선택자$("요소들선택").index( $("지정선택요소선택") );
+		- 해석 : $("지정선택요소선택")를 찾아서 찾은 요소의 index위치번호를 반환합니다.
+			       찾을 데이터가 없으면 -1을 반환합니다.
+	 -->
+	 
+	<!-- 
+		주제 : index메소드를 사용하여 <body></body>사이에 있는 html태그 중에서
+		<li></li>태그의 id속성값이 "list3"인 요소를 찾아
+		index 위치 번호를 반환하는 예제
+	 -->
+
+	<h1>배열 관련 메소드</h1>
+	<ul>
+		<li>내용1</li>
+		<li>내용2</li>
+		<li id="list3">내용3</li>
+		<li>내용4</li>
+	</ul>
+	
+	<script>
+		//모든 li요소를 배열로 담아서 선택해옴
+		//찾고자 하는 요소를 선택해서 해당 index 위치 번호를 반환함
+		let idxNum = $("li").index($("#list3"));
+		console.log(idxNum); //2
+	
+	</script>
+
+</body>
+</html>

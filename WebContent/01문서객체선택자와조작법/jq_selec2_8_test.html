@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+	<!-- 
+		배열 관련 메소드 종류 중에서
+		
+		$.map() ***유용하게 씀
+		- 배열 또는 객체의 요소를 하나씩 꺼내어 변형해서 새로운 배열을 만드는 메소드
+		- 문법
+				$.map(배열_또는_객체, function(값, 인덱스_또는_키){
+				
+					return 새로운_값;
+				
+				});
+		- 배열 또는 객체를 매개변수로 받아서, 각 요소를 가공한 후 새로운 배열을 만들어 반환합니다.
+		- 예) const array = [1, 2, 3, 4, 5];
+							0  1  2  3  4   index
+							
+			 const squares = $.map(array, function(elem, index){
+			 
+			 		return elem * elem;
+			 
+			 });
+			 
+			 return 값 [1, 4, 9, 16, 25]
+	
+	 -->
+	 
+ 	<script>
+ 		let arr1 = [
+ 					{"area":"서울", "name":"무대리"},		//0 index
+ 					{"area":"부산", "name":"홍과장"},		//1 index
+ 					{"area":"대전", "name":"박사장"},		//2 index
+ 					{"area":"서울", "name":"빅마마"}		//3 index
+ 					];
+ 		
+ 					//$.map()메소드에 의해 새롭게 가공된 배열을 저장할 arr2변수
+ 					//arr1배열에 저장된 {}객체 갯수만큼 function을 반복 실행합니다.
+ 		let arr2 = $.map(arr1, function(elem, index){
+ 			//elem매개변수에는 arr1배열에 저장된 {}객체를 index 0 ~ 3의 순서대로 받습니다.
+ 			//전달받은 {속성:값}객체의 속성값을 꺼내와서 사용하려면?
+ 			//객체명.속성명을 작성하면 속성명에 저장된 속성값을 얻을 수 있음
+ 			//예) elem.객체명.area속성명을 작성하면 -> "서울" 속성값을 얻을 수 있음
+ 			
+ 			if(elem.area == "서울"){//각 객체들이 사는 지역이 서울인 객체들만 추출해서
+ 								   //새로운 배열에 추가하여 새로운 배열 자체를 반환
+ 				return elem;
+ 			
+ 			}
+ 			
+ 		});
+ 		
+ 		console.log(arr2); //[ {"area":"서울", "name":"무대리"}, {"area":"서울", "name":"빅마마"} ]
+ 		
+ 		// 원본 배열은 남겨두면서 새로운 배열을 만들 때 사용
+ 		
+ 		console.log("======================first End===========================")
+ 	</script>
+ 	
+ 	<!-- 
+ 		$.grep()
+ 		- 배열에서 특정 조건을 만족하는 요소만 골라내는 필터링 메소드(함수)입니다.
+ 		   배열에서 원하는 요소만 남기고, 나머지는 제거할 때 사용합니다.
+ 		- 문법
+ 				$.grep(array, function(매개변수1, 매개변수2){
+ 				
+ 					return 조건식 또는 true 또는 false;
+ 					
+ 				});
+ 		- return값이 true일 경우 그 값을 반환해 새 배열에 저장
+ 		
+ 		- 예)	const array = [1,2,3,4,5]
+ 		
+ 				const evens = $.grep(array, function(elem, index){
+ 				
+ 					return elem % 2 === 0;
+ 					
+ 				});
+ 				
+ 				return 값 [2, 4]
+ 	
+ 	 -->
+ 	 
+ 	 <script>
+ 	 
+ 	 	let arr3 = $.grep(arr1, function(elem, index){
+ 	 		
+ 	 		//{}객체 내부에 area속성의 값이 "서울"을 포함하고 있다면?
+ 	 		if(elem.area === "서울"){
+ 	 				
+ 	 			return true; //새로운 배열 생성
+ 	 			
+ 	 		}else{
+ 	 			
+ 	 			return false; //새로운 배열에 추가되지않음
+ 	 			
+ 	 		}
+ 	 		
+ 	 	});
+ 	 	
+ 	 	console.log(arr3); //[ {"area":"서울", "name":"무대리"}, {"area":"서울", "name":"빅마마"} ]
+ 	 	console.log("======================Second End===========================")
+ 	 
+ 	 
+ 	 </script>
+ 	 
+</head>
+<body>
+</body>
+</html>

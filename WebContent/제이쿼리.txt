@@ -73,11 +73,11 @@
 		   -  jq_sample1.html 파일 생성및 실습 
 		   
 		   1.1 기본 선택자 
-		       1.1.1 직접 선택자		<------------------------------------------------------------------------  ***** 다 알아두기
+***완전중요***	 1.1.1 직접 선택자		
 		       		  170 page
 		       		  	전체선택자   $("*")   의미 - html파일내부에 있는 모든 DOM을 선택해오는 전체선택자 
 		       		  	
-		       		  	----- jq_sample1_1.html 파일 실습      **설명추가
+		       		  	----- jq_sample1_1.html 파일 실습     
 		       		  	
 		       		  	
 		       		  	아이디선택자   $("#아이디명")   의미 - id속성에 지정한 값을 가진 DOM을 선택해오는 아이디 선택자
@@ -125,20 +125,20 @@
 		       		  	
 		       		  	
 		       		  	
-		       		  	하위 요소 선택자  	"  " 							 "  " <------------------------------ ***많이사용 100%사용
+***많이사용		       	하위 요소 선택자  	"  " 							 
 		       		  						
 		       		  	---------- jq_selec1_8.html 파일 실습					
 		       		  						
 		       		  						
 		       		  						
-		       		  	자식 요소 선택자  	>	   또는	  children()  		 '>' <------------------------------ ***많이사용
+***많이사용  >		       	자식 요소 선택자  	>	   또는	  children()  		
 		       		  	
 		       		  	---------  jq_selec1_9.html 파일 실습 
 		       		  	
 		       		  	
 		       		  	
-		       		  	형(이전)요소 선택자     prev()메소드   와              
-		       		  	동생(다음)  next()메소드 ,  +   					 'prev()', 'next()', '+' <------------------------------ ***많이사용
+***많이사용 		                형(이전)요소 선택자     prev()메소드   와              
+***많이사용		       	동생(다음)  next()메소드 ,  +   					
 		       		  	
 		       		  	---------  jq_selec1_10.html 파일 실습
 		       		  	
@@ -172,36 +172,35 @@
 			  		      
 				  		1.2.1.위치 탐색 선택자 종류 실습
 				  			
-			  			----------------- jq_selec2_1_test.html 파일 실습    first , last 선택자 			<------------------------***많이사용
+***많이사용			  	----------------- jq_selec2_1_test.html 파일 실습    first , last 선택자 			
 		  				----------------- jq_selec2_2_test.html 파일 실습    even , odd 선택자
-		  				----------------- jq_selec2_3_test.html 파일 실습    eq(index) ,  lt(index), gt(index) 선택자  	'eq(index)'<-------***많이사용
+***많이사용 eq(index)		----------------- jq_selec2_3_test.html 파일 실습    eq(index) ,  lt(index), gt(index) 선택자  	
 						----------------- jq_selec2_4_test.html 파일 실습    first-of-type ,   last-of-type 선택자 
-						----------------- jq_selec2_5_test.html 파일 실습    nth-child(숫자) 또는 nth-child(숫자n) ,     
-																												nth-last-of-type(숫자) 선택자   
-	                   
+						----------------- jq_selec2_5_test.html 파일 실습    nth-child(숫자) 또는 nth-child(숫자n) , nth-last-of-type(숫자) 선택자     
+																												  	                   
 	  	     		  
-							----------------- jq_selec2_6_test.html 파일 실습    only-child  ,  slice(index)  선택자 				
+						----------------- jq_selec2_6_test.html 파일 실습    only-child  ,  slice(index)  선택자 				
 	       		  	
 	   					1.2.1.2. 위치 탐색 선택자와 같이 알아 놓으면 좋은 배열 관련 메소드 종류 실습
 	   					
 	   					----------------- jq_selec2_7_test.html 파일 실습    each() , $.each() 메소드 
 	   					----------------- jq_selec2_7_1_test.html 파일 실습   응용
 	   					
-	   					----------------- jq_selec2_8_test.html 파일 실습   $.map() , $.grep() 메소드
-						----------------- jq_selec2_9_test.html 파일 실습   $.inArray() , $.isArray(),  $.merge() 메소드
-						----------------- jq_selec2_10_test.html 파일 실습   index() 메소드
-						------------------jq_selec2_10_1.html 파일 실습
+***유용함 $.map()	   		----------------- jq_selec2_8_test.html 파일 실습   $.map() , $.grep() 메소드				 
+***유용함 $.isArray()		----------------- jq_selec2_9_test.html 파일 실습   $.inArray() , $.isArray(),  $.merge() 메소드   
+***많이사용				----------------- jq_selec2_10_test.html 파일 실습   index() 메소드						 
+						------------------jq_selec2_10_1.html 파일 실습			$.grep()&index() 복습
 						
-						----------------- jq_application.html 응용 종합 실습  
+						----------------- jq_application.html 응용 종합 실습 		$.inArray() $.grep() $.map() $.merge() 복습
 
-					  ----------------- application.html 학생관리시스템
+					    ----------------- application.html 학생관리시스템   <--------------- *** 값 추가하고 삭제하는 예제 (ex.댓글, 게시글 추가 삭제할 때 활용 가능)
 						----------------- application2.html 할일목록 
 						
 					
    					
-   					    1.2.2.1. 속성 탐색 선택자 종류 실습
-   					    ----------------- jq_selec2_11_test.html 파일 실습    속성과 값에 따른 탐색 선택자
-   					    ----------------- jq_selec2_12_test.html 파일 실습    속성상태에 따른 탐색 선택자
+***완전중요***   			1.2.2.1. 속성 탐색 선택자 종류 실습 		
+   			       	    ----------------- jq_selec2_11_test.html 파일 실습    속성과 값에 따른 탐색 선택자 
+***완전중요***   			----------------- jq_selec2_12_test_.html 파일 실습    속성상태에 따른 탐색 선택자  	 
    					    
    					    ----------------- jq_selec2_13_test.html 파일 실습    그외 콘텐츠 탐색 선택자1
    					    ----------------- jq_selec2_14_test.html 파일 실습    그외 콘텐츠 탐색 선택자2
@@ -209,11 +208,11 @@
    					    1.2.2.2. 속성 탐색 선택자와 알아두면 유용한 메서드 종류 실습
    					    ----------------- jq_selec2_15_test.html 파일 실습      is()
 
-								----------------- jq_selec2_16_test.html 파일 실습
+						----------------- jq_selec2_16_test.html 파일 실습
 								                    $.get() 메소드
 
-								------------------ jq_selec2_17_test.html 파일 실습
-																		$.noConflict() 메소드
+						------------------ jq_selec2_17_test.html 파일 실습
+													$.noConflict() 메소드
   
   
   

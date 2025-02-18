@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할 일 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #todoList {
+            margin-top: 20px;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        .remove-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+   
+    <script>
+    	//JQuery의 $(document).ready();는 HTML요소들이 준비되었을 때 실행되도록 보장함.
+        $(document).ready(function() { //DOM이 완전히 불러와지면 실행되는 이벤트
+        	
+        	//추가버튼에 click이벤트 함수 등록
+            $('#addTodoBtn').click(function() { 
+            	
+            	//사용자가 <input>요소에 입력한 값을 공백없이 상수에 저장
+                const todoText = $('#todoInput').val().trim(); 
+        
+                if (todoText) { //입력값이 있을 경우?
+                		
+                    addTodoToList(todoText); //할일 목록에 추가하는 함수 호출
+                    $('#todoInput').val(''); //<input>의 value속성에 빈 공백 문자열을 설정해 입력 필드 초기화
+                } else {
+                    alert('할 일을 입력하세요.'); //입력값 없이 추가버튼을 눌렀을 경우의 알림창 
+                }
+            });
+        	
+        	//새로운 할 일을 목록에 추가하는 함수
+            function addTodoToList(text) { 
+        		
+            	//사용자가 입력한 값을 <div>요소에 넣어 상수에 저장
+                const todoItem = $('<div class="todo-item"></div>'); 
+                		
+                //<div>요소안에 사용자가 입력한 값을 <span>요소 넣고, 삭제버튼 추가 
+                todoItem.html(`
+                    <span>${text}</span>
+                    <button class="remove-btn">삭제</button>
+                `);
+                /*
+                	.html() 함수 
+                	- 선택한 HTML요소 내부의 내용을 변경하거나 설정할 때 사용함
+                	- 여기서는 todoItem(<div class="todo-item"></div>)사이에
+                	    내용과 삭제버튼을 추가하는 역할을 합니다.
+                	- 기존 내용을 없애고, 새로운 HTML코드를 삽입하는 함수(내용 덮어씀)
+                	- 기존 내용을 유지하면서 새로운 내용을 추가하려면 append()함수를 사용해야함              
+                */
+        
+                //삭제버튼에 click이벤트 등록
+                todoItem.find('.remove-btn').click(function() {
+                /*
+                	find()함수
+                	- 선택한 요소 내부에서 특정한 하위요소를 찾을 때 사용합니다.
+                */
+                	//삭제버튼이 눌린 <div>요소를 삭제
+                    todoItem.remove(); //remove()함수 : 선택한 요소를 삭제할 때 사용
+                });
+              	
+                //.append() 추가하는 메소드
+                $('#todoList').append(todoItem); 
+                //<div id="todoList"></div>를 선택해와서 
+                //사용자가 입력한 값의 <div>요소인 todoItem를 추가
+            }
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+    <button id="addTodoBtn">추가</button>
+
+    <div id="todoList"></div>
+
+</body>
+</html>

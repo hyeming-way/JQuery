@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title> 
+
+	<!-- 
+		 속성탐색 선택자 중에서  속성상태에 따른 탐색선택자 
+		   -  선택한 요소 중 속성 상태에 따라 요소를 선택하는 선택자
+		   -  문법
+		   			1.  $("요소들선택:visible 또는 :hidden")
+					        선택한 요소들중에서 숨겨진 상태 또는 보이는 상태의 요소만 최종 선택합니다.
+	 			
+	 				2.  $(":selected")
+	 					선택상자 중 현재 선택된 option요소만 선택합니다.
+	 				
+	 				3.  $(":checked")
+	 					체크박스 또는 라디오 버튼 요소중  체크된 상태의 요소만 최종 선택합니다.
+	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){ //$(document).ready(function() <---- 를 줄여씀
+		//id=wrap인 부모 <div>를 먼저 선택하고
+		//하위 선택자 빈 공백을 이용해 모든 자식<p>요소들을 배열에 담아 선택해오는데
+		//p요소들 중에서도 숨겨져 있는 상태의 <p style="display:none">내용2</p>만 최종선택
+		//선택한 요소를 다시 보이게 설정하고, 배경색을 노란색으로 설정
+		$("#wrap p:hidden").css({
+								"display":"block",
+								"backgroundColor":"yellow"
+								});
+		
+		//id=zone1인 <p> 부모요소를 먼저 선택해오고
+		//하위 <option>들 중에서 selected속성이 부여되어 선택된 상태에 있는
+		//<option value="opt2" selected>옵션2</option>를 최종선택해서
+		//선택한 옵션에 value속성에 설정된 "opt2" val()메소드를 호출해서 얻자
+		let z1 = $("#zone1 :selected").val();
+		console.log(z1); //opt2
+		
+		//<input type="checkbox" name="hobby3" value="등산" checked> 체크가 되어있는 요소만 선택해서
+		//선택한 옵션에 value속성에 설정된 "등산" val()메소드를 호출해서 얻자
+		let z2 = $("#zone2 :checked").val();
+		console.log(z2); //등산
+		
+		//<input type="radio" name="gender" value="female" checked> 체크가 되어있는 요소만 선택해서
+		//선택한 옵션에 value속성에 설정된 "female" val()메소드를 호출해서 얻자
+		let z3 = $("input[type=radio]:checked").val();
+		console.log(z3); //female
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p>내용1</p>
+		<p style="display:none">내용2</p>
+		<p>내용3</p>
+	</div>
+	<form action="#">
+		<p id="zone1">
+			<select name="course" id="course">
+					<option value="opt1">옵션1</option>
+					<option value="opt2" selected>옵션2</option>
+					<option value="opt3">옵션3</option>
+			</select>
+		</p>
+		<p id="zone2">
+				<input type="checkbox" name="hobby1" value="독서"> 독서
+				<input type="checkbox" name="hobby2" value="자전거"> 자전거
+				<input type="checkbox" name="hobby3" value="등산" checked> 등산
+		</p>
+		<p id="zone3">
+				<input type="radio" name="gender" value="male"> 남성
+				<input type="radio" name="gender" value="female" checked> 여성
+		</p>
+	</form>
+</body>
+</html>
