@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<h1><strong>객체 조작 및 생성</strong></h1>
+	<section id="sec_1">
+		<h2>이미지 속성</h2>
+		<p><img src="images/math_img_1.jpg" alt="가위" border="2"></p>
+	</section>
+	
+	<script>
+		/*
+			attr메소드
+			- 선택한 요소의 attr메소드 호출시 매개변수로 전달하는 속성명에 대한 값을 반환하거나
+			    선택한 요소의 attr메소드 호출시 매개변수로 속성명, 속성값을 전달해서 속성값을 설정할 때 사용하는 메소드    
+			    
+			- 문법 1
+					$("요소선택").attr("속성명");
+			- 문법 2
+					$("요소선택").attr("속성명", "속성값");
+			- 문법 2-1
+					$("요소선택").attr({"속성명1":"속성값1", "속성명2":"속성값2"});
+		*/	    
+		
+		/*
+			removeAttr 객체(DO)조작 메소드
+			- 요소를 선택하여 선택한 요소의 기존에 적혀 있던 특정 속성을 삭제할 때 사용하는 메소드
+			- 문법
+					$("요소선택").removeAttr("삭제할속성명");
+		
+		*/
+		
+			let srcVal = $("[alt=가위]").attr("src"); //src속성에 적힌 주소값 반환
+			console.log(srcVal); //images/math_img_1.jpg
+			
+			$("#sec_1 img").attr("src", "images/math_img_3.jpg");
+			//<img src="images/math_img_3.jpg" alt="가위" border="2">
+			
+			$("#sec_1 img").attr({"alt":"바위", "border":"3"});
+			//<img src="images/math_img_3.jpg" alt="바위" border="3">
+			
+			$("img").removeAttr("src");
+			//<img alt="바위" border="3">
+			
+		
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+
+	<!-- 
+		 position()
+		  - 포지션 기준이 되는 요소를 기준으로 선택한 요소의 위치 좌푯값을 반환 하는 메소드 
+		  - 문법
+		  		$("요소 선택").position().left 또는 right 또는 top 또는  bottom
+		  		해석 : position()메서드는 포지션 기준이 되는 요소를 기준으로  
+		  		          선택한 요소에서 가로/세로로  떨어진 위치의 좌푯값을 반환하거나 변경합니다.
+		  
+		 
+		 offset()
+		 - 전체 문서 화면을 기준으로 선택한 요소의 위치 좌푯값을 반환하는 메소드 
+		 - 문법 
+		 		$("요소선택").offset().left 또는 top
+		 		해석 : 문서를 기준으로 선택한 요소의 위치 좌푯값을 반환합니다. 
+	
+	 -->
+	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ){
+		//<p class="txt_1">절대 top위칫값: <span></span></p> 요소 내부에 작성된
+		//<span></span>요소 한 쌍을 선택해서 변수에 저장
+		let $txt1 = $(".txt_1 span");
+		
+		//<p class="txt_2">상대 top위칫값: <span></span></p>요소 내부에 작성된
+		//<span></span>요소 한 쌍을 선택해서 변수에 저장
+		let $txt2 = $(".txt_2 span");
+		
+		//<p class="box">박스</p> 선택해서 변수에 저장
+		let $box = $(".box");
+		
+		//전체 문서 화면을 기준으로 <p class="b	ox">박스</p> 요소의
+		//y축 방향으로 얼마만큼 위치해있는지의 top의 값을 얻는다. (절대값)
+		let off_t = $box.offset().top;
+		console.log(off_t); //100
+		
+		//$txt1의 <span>요소 안에 off_t 값을 넣자
+		$txt1.text(off_t); //<p class="txt_1">절대 top위칫값: <span>100</span></p>
+		
+		//감싸고 있는 부모요소 기준으로 
+		//y축 방향으로 얼마만큼 위치해있는지 top의 값을 얻는다.
+		let pos_t = $box.position().top;
+		console.log(pos_t); //50
+		
+		//$txt2의 <span>요소 안에 pos_t 값을 넣자
+		$txt2.text(pos_t); //<p class="txt_2">상대 top위칫값: <span>50</span></p>
+	});
+	</script>
+	<style>
+		*{margin:0;padding:0;}
+		#box_wrap{
+				width:300px;
+				height:200px;
+				margin:50px auto 0;
+				position: relative;  /*  요소의 위치를 일반적인 문서 흐름에 따라 배치한후 , 
+										 해당 요소를 기준으로 상대적인 위치를 지정할 수  있습니다. */
+				background-color:#ccc;
+		}
+		.box{
+				width:50px;height:50px;
+				
+				position:absolute; /*  요소를 문서 흐름에서 제거하고, 가장 가까운 위치의 지정 조상요소를 기준으로 상대적인 위치를 지정 */
+				left:100px;top:50px;
+				background-color:#f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box_wrap">
+		<p class="box">박스</p>
+	</div>
+	<p class="txt_1">절대 top위칫값: <span></span></p>
+	<p class="txt_2">상대 top위칫값: <span></span></p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+	<!-- 
+		객체 편집 메소드 종류
+		
+		unwrap()
+		- 선택한 요소의 부모요소를 삭제하는 메소드
+		- 문법
+			 $("요소선택").unwrap();
+		
+		wrap()
+		- 선택한 요소를 각각 새 요소를 생성하여 감싸는 기능의 메소드 
+		- 문법
+			 $("요소선택").wrap("새요소생성");
+		
+		
+		wrapAll()
+		- 선택한 요소를 한꺼번에 새요소를 생성하여 감싸는 기능의 메소드 
+		- 문법
+			 $("요소선택").wrapAll("새요소생성");
+		
+		
+		wrapInner()
+		- 선택한 요소의 모든 하위 요소를 새요소를 생성하여 감싸는 기능의 메소드
+		- 문법
+			 $("요소선택").wrapInner("새요소 생성");
+	
+	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ){
+	
+		//<strong>객체 조작 및 생성</strong> 선택해서
+		//<strong>을 감싸고 있는 부모요소 <h1 id="tit_1">만 삭제
+		$("strong").unwrap();
+		
+		
+		//내용1, 내용2를 선택해서 가져와
+		//각 요소를 각각 새로 <div>를 추가하여 감싸기
+		$(".ct1").wrap("<div></div>");
+		
+		
+		//내용3, 내용4를 선택해서 가져와
+		//해당 요소들을 새로 <div>추가하여 한꺼번에 감싸기
+		$(".ct2").wrapAll("<div></div>");
+		
+		
+		//<li>요소인 내용3, 내용4를 선택해서 가져와
+		//<li>요소 안의 텍스트노드를 <h3>으로 감싸기
+		$("li").wrapInner("<h3></h3>");
+		
+	});
+	</script>
+	<style>
+		div{background-color:aqua;}
+	</style>
+</head>
+<body>
+	<h1 id="tit_1">
+		<strong>객체 조작 및 생성</strong>
+	</h1>
+		<p class="ct1">내용1</p>
+		<p class="ct1">내용2</p>
+		<p class="ct2">내용3</p>
+		<p class="ct2">내용4</p>
+	<ul>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+</body>
+</html>

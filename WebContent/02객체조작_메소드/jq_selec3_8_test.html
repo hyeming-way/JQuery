@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+
+	<!-- 
+		 스크롤 바 위치 메소드
+		 
+		 scrollTop()    
+		 - 스크롤 막대바가 세로 방향(수직 방향)으로 이동시켜  이동한 수직방향의 위치값을 얻을수 있고,
+		      스크롤 막대바를 강제로  수직방향으로 지정한 수치만큼 이동 시킬수 있게 도와주는 메소드 
+		 -  문법
+		 		$(요소선택).scrollTop();   또는  $(요소선택).scrollTop(수치);     
+		      
+		 
+		 scrollLeft()
+		 - 스크롤 막대바가 가로 방향 (왼쪽에서 오른쪽으로 이동하는  방향)으로 이동시켜 이동한 가로 방향의 위치값을 얻을수 있고,
+		      스크롤 막대바를 강제로 가로 방향으로 지정한 수치만큼 이동 시킬수 있게 하는 메소드  
+		  -  문법
+		 		$(요소선택).scrollLeft();   또는  $(요소선택).scrollLeft(수치);      
+
+	 -->
+
+
+	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ){
+		//<h1>요소를 선택해서 가져와 전체 문서화면을 기준으로
+		//아래쪽 방향으로 얼마만큼 떨어져있는지 <h1>의 y축 좌표위치값 얻기
+		let topNum = $("h1").offset().top;
+		console.log(topNum); //2000
+		
+		//웹브라우저 윈도우창 정보를 지닌(window객체)를 선택해서
+		//scrollTop(2000); 메소드를 호출하면
+		//스크롤막대바가 y축 방향으로 2000px만큼 이동되어 보이게 설정
+		$(window).scrollTop(topNum); 
+		
+		//scrollTop(); 메소드에 수치를 넣지 않고 호출하면
+		//스크롤 막대바가 수직 아래방향으로 이동한 y축의 좌표값 2000px를 얻을 수 있다.
+		let sct = $(window).scrollTop();
+		console.log(sct); //2000
+		
+	});
+	</script>
+	<style>
+		
+		*{margin:0;padding:0;}
+		
+		body{line-height:1;}
+		
+		#wrap{
+				height:5000px;
+				padding-top:2000px;
+				background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<h1>위치 메서드</h1>
+	</div>
+</body>
+</html>
+
+
+
+
+
+

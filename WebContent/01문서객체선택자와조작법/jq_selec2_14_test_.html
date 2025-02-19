@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+
+	<!-- 
+		그외 콘텐츠 탐색 선택자 
+		
+		 find()
+		 	- 선택한 요소 집합 내에서 하위요소를 선택하는데 사용되는 선택자.
+		 	- 문법
+		 		$("부모요소선택").find("하위요소 중 필터링할 자식요소선택")
+		 
+		 
+		 filter()
+		 	- 조건을 충족하는 요소를 필터링해서 선택하는데 사용되는 선택자.
+			- 문법
+				$("요소선택").filter("선택한 요소 중 필터링할 요소선택")
+				
+				
+		공통 기능 : 선택한 요소집합에서 원하는 요소를 선택하는데 사용되는 선택자들입니다. 		
+	 -->
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		$(function(){
+			//id속성값이 inner_1인 <section>을 선택해오고
+			//<section>내부에 있는 class속성값이 txt1인 하위 <p>자식요소만 최종 선택
+			$("#inner_1").find(".txt1").css("backgroundColor", "aqua");
+			
+			//id속성값이 inner_2인 <section>을 선택해 그 하위 모든 자식 p요소들을 선택해오는데
+			//선택한 p요소들의 갯수만큼 익명함수 function이 호출되어 실행되게 filter()선택자를 이용하자
+			//filter선택자의 내부의 function을 사용해 
+			//return idx % 2 === 0 조건식의 결과가 true가 되는 <p>들만 최종 새 배열에 담아서 선택해 옴
+			$("#inner_2 p").filter(function(idx, obj){
+				
+				return idx % 2 === 0; 
+				
+			}).css("backgroundColor", "pink"); //[<p>index 0</p>, <p>index 2</p>] 최종선택
+			
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">
+			<h2>find( ), filter( )</h2>
+			<p class="txt1">내용1</p>
+			<p class="txt2">내용2</p>
+		</section>
+		
+		<section id="inner_2">
+			<h2>filter(function)</h2>
+			<p>index 0</p>
+			<p>index 1</p>
+			<p>index 2</p>
+			<p>index 3</p>
+		</section>
+	</div>
+</body>
+</html>

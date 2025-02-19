@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		
+		$(function(){
+			
+			//id속성값이 sec_1인 <section>요소를 선택해서
+			//.html()메소드를 호출하면 하위 요소들을 문자열로 변환해서 선택해옵니다.
+			console.log($("#sec_1").html());
+			/*
+				"<h2><em>html()</em></h2>
+				 <p>내용1</p>"
+			*/
+			
+			//---------------------------------------------------------
+			
+			//<p>내용1</p>요소를 선택해서
+			//내용1 자리를 수정해서 새요소 <a href='#'>Text1</a>를 생성해서 넣는다.
+			$("#sec_1 p").html("<a href='#'>Text1</a>");
+			//<p><a href='#'>Text1</a></p>
+			
+			//---------------------------------------------------------
+			
+			//<section id="sec_2">를 선택해서 가져와서 
+			//.text()메소드를 호출해 하위 요소의 텍스트 노드 값을 반환받자
+			let result_2 = $("#sec_2").text();
+			console.log(result_2);
+			/*
+				"텍스트()
+				내용2"
+			*/
+			
+			//---------------------------------------------------------
+			
+			//<h2><em>텍스트()</em></h2> 선택해서 가져와
+			//<em>텍스트()</em>을 제거하고 text메소드 호출시 전달한 "설정할 텍스트" 동적으로 생성해서 넣자
+			$("#sec_2 h2").text("설정할 텍스트");
+			//<h2>설정할 텍스트</h2>
+			
+			
+		})
+	
+	</script>
+</head>
+<body>
+	<h1><strong>객체 조작 및 생성</strong></h1>
+	<section id="sec_1">
+		<h2><em>html()</em></h2>
+		<p>내용1</p>
+	</section>
+	<section id="sec_2">
+		<h2><em>텍스트()</em></h2>
+		<p>내용2</p>
+	</section>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script>
+	$(function(){
+		//<p id="p1">내용1</p> 선택해서 
+		let h1 = $("#p1").height(); //콘텐츠 영역의 높이 50px 반환
+		console.log(h1); //50
+		
+		let w1 = $("#p1").width(); //너비 영역의 높이 100px 반환
+		console.log(w1); //100
+		
+	
+		//<p id="p2">내용2</p> 선택해서 
+		//padding영역과 콘텐츠영역을 더한 높이, 너비 반환
+		let h2 = $("#p2").innerHeight();
+		console.log(h2); //90
+		
+		let w2 = $("#p2").innerWidth();
+		console.log(w2); //140
+		
+		
+		//<p id="p1">내용1</p> 선택해서
+		//padding영역 + 컨텐츠영역 + border영역을 모두 더한 높이, 너비 반환
+		let h3 = $("#p1").outerHeight();
+		console.log(h3); //100
+		
+		let w3 = $("#p1").outerWidth();
+		console.log(w3); //150
+		
+		//-------------------------------------------------------------
+		
+		//<p id="p2">내용2</p> 선택해서
+		//padding + border 영역을 포함한 요소의 너비값을 100px로 변경
+		//padding + border 영역을 포함한 요소의 높이값을 110px로 변경
+		$("#p2").outerWidth(100).outerHeight(110);
+		
+		
+		
+
+		
+	});
+	</script>
+	<style>
+		*{padding: 0;}
+		#p1, #p2{
+			width: 100px;
+			height: 50px;
+			padding:20px;
+			border: 5px solid #000;
+			background-color: #ff0;
+		}
+	</style>
+</head>
+<body>
+	<h1>수치 조작 메서드</h1>
+	<p id="p1">내용1</p>
+	<p id="p2">내용2</p>
+</body>
+</html>
+
+

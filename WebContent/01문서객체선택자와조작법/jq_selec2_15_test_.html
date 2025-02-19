@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+
+	<!-- 
+		속성 탐색자와 함께 알아두면 유용한 메소드 
+		
+		is()
+		
+		 - 선택한 요소의 상태가 지정한 속성과 일치하면 true반환, 그렇지않으면 false반환 하는 메소드 
+		 - 입력요소의 체크박스나 선택상자의 선택 여부 또는 숨겨져 있는 상태의 여부를 조건식으로 작성할때 사용되는 메소드 
+		 - 문법
+		 	$("요소선택").is(:checked 또는 :selected 또는 :visible 또는 :hidden 또는 :animated)
+		 	의미 :  요소선택.is(:checked) -> 선택한 요소(체크박스)가 체크되어 있으면 true반환 아니면 false 반환 메소드
+		 							  -> 선택한 요소(라디오버튼)가 체크되어 있으면 true반환 아니면 false 반환 메소드 
+		 		 
+		 		    요소선택.is(:selected) -> 선택한 Option요소가 선택되어 있으면 true반환 아니면 false를 반환 메소드 
+	 -->
+	 
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		$(function(){
+			//<section id="inner_1"> 내부에 있는 <p>요소들을 배열에 담아서 변수에 저장
+			//eq()를 이용해 첫번째 <p>만 선택
+			//is(":visible")메소드를 호출하여 화면에 보이면 true반환, 화면에 보이지 않으면 false를 반환
+			let result_1 = $("#inner_1 p");
+			
+			let result_1_1 = result_1.eq(0).is(":visible"); //화면에 보이고 있느냐? 			* visible : (눈에)보이는, 알아볼 수 있는
+			console.log(result_1_1); //true
+			
+			console.log(result_1.eq(1).is(":visible")); //false
+			
+		/*	
+			//체크1 checkbox가 체크된 상태이냐?
+			//is메소드의 반환값은 체크되어있으면 true, 아니면 false반환
+			if($("#chk1").is(":checked")){ //true
+				
+				//<h2>폼 태그 영역</h2>를 선택해서 배경색을 분홍색으로 적용
+				$("#inner_2 h2").css("backgroundColor", "pink");
+				
+			//체크2 checkbox가 체크된 상태이냐?	
+			}else if($("#chk2").is(":checked")){ //false
+				
+				//<h2>폼 태그 영역</h2>를 선택해서 배경색을 파란색으로 적용
+				$("#inner_2 h2").css("backgroundColor", "blue");
+				
+			}
+		*/
+			
+			//input요소 중에서 아래 2개의 체크박스를 배열에 담아 선택해오고
+			//2개의 체크박스 중 하나라도 체크가 되어 있는 상태이면?
+			//<h2>폼 태그 영역</h2>영역을 선택해 배경색을 pink로 설정
+			
+			$("input[type=checkbox]").each(function(idx, elem){
+				
+				//체크되어있는 상태인가?
+				if( $(elem).is(":checked") ){
+					
+					$("#inner_2 h2").css("backgroundColor", "pink");
+					
+				}		
+				
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>is( )</h1>
+		<section id="inner_1">
+			<h2>문단 태그 영역</h2>
+			<p>내용1</p>
+			<p style="display:none;">내용2</p>
+		</section>
+		
+		<section id="inner_2">
+			<h2>폼 태그 영역</h2>
+			<p>
+				<input type="checkbox" name="chk1" id="chk1" checked>
+				<label for="chk1">체크1</label>
+
+				<input type="checkbox" name="chk2" id="chk2">
+				<label for="chk2">체크2</label>           
+			</p>
+		</section>
+	</div>
+</body>
+</html>

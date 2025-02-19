@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 
+		그외 콘텐츠 탐색 선택자 
+		
+		contains()
+		- 선택한 요소 중 지정한 텍스틑 포함하고 있는 요소만 선택하는 선택자 
+		- 문법
+			  $("요소들선택:contains(텍스트)")
+		
+		contents()
+		- 선택한 요소의 하위요소중에서 1 깊이의 텍스트와 태그노드를 선택하는 선택자
+		- 문법
+			  $("요소선택").contents()
+		
+		has()
+		- 선택한 요소 중 지정한 태그를 포함하는 요소만 선택합니다. 
+		- 문법
+			  $("요소선택:has(요소명)")   /  $("요소선택").has("요소명")
+		
+		not()
+		- 선택한 요소 중 지정한 요소만 제외한 채 요소를 선택하는 선택자.
+		- 문법
+			  $("요소선택:not(제외할 요소선택)")   /   $("요소선택").not(제외할 요소선택) 
+		
+
+		end()
+		- 필터링 되기 이전의 선택자가 적용되도록 하는 선택자.
+		- 문법 
+			   $("요소선택").탐색선택자().end()
+	
+	 -->
+	<script>
+		$(function(){
+			//id속성의 값이 inner_1인 첫번째 <section>요소 영역을 선택해서
+			//<section>영역의 하위 p요소들을 모두 선택해오는데
+			//p요소들 중에서도 '내용1'이라는 텍스트 노드를 가진 첫번째로 작성된 <p>요소 최종 선택
+			$("#inner_1 p:contains(내용1)").css("backgroundColor", "aqua");
+			
+			//id속성의 값이 outer_wrap인 <div>요소를 선택해오고
+			//.contents() 선택자를 이용해 <div>안에 작성된 1단계 자식요소들을 최종 선택
+			$("#outer_wrap").contents().css("border", "1px solid red");
+			
+			//id속성의 값이 inner_1인 첫번째 <section>요소 영역을 선택해서
+			//<section>영역의 하위 p요소들을 모두 선택해오는데
+			//<p>요소들 중에서도 <strong>요소를 자식으로 포함하고 있는 <p>요소들만 최종 선택
+			//$("#inner_1 p:has(strong)").css("backgroundColor", "red");
+			$("#inner_1 p").has("strong").css("backgroundColor", "red");
+			
+			//두번째 <section>요소를 선택해
+			//내부에 작성된 모든 <p>들 중에서도 첫번째 작성된 <p>를 제외한 나머지들만 최종 선택
+			//$("#inner_2 p").not($("#inner_2 p:contains(내용4)")).css("backgroundColor", "yellow");
+			//$("#inner_2 p").not(":first").css("backgroundColor", "yellow");
+			$("#inner_2 p:not(:first)").css("backgroundColor", "yellow");
+			
+			//두번째 <section>요소를 선택해
+			//<section>영역의 하위 p요소들을 모두 선택해오는데
+			//.eq(index)를 사용해 2 index위치에 있는 <p>내용6</p>를 최종 선택해오는데
+			//.end()선택자를 추가로 작성하면 eq(2)탐색 선택자로 선택되지 않고 (탐색선택자 무시함)
+			//모든 <p>내부의 글자색이 그린으로 설정된다.
+			$("#inner_2 p").eq(2).end().css("color", "green");	
+		});
+	</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">
+			<h1>contains(), contents(), has()</h1>
+			<p><span>내용1</span></p>
+			<p><strong>내용2</strong></p>
+			<p><span>내용3</span></p>
+		</section>
+		<section id="inner_2">
+			<h1>not(), end()</h1>			
+			<p>내용4</p>
+			<p>내용5</p>
+			<p>내용6</p>
+		</section>
+	</div>
+</body>
+</html>

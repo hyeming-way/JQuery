@@ -156,7 +156,6 @@
 		       		  	
 		       		  	
 		       		  	범위 제한 전체 형 요소선택자  prevUntill("범위 제한 요소선택") 와
-		       		  	범위 제한 전체 동생 요소 선택자 nextUntill("범위 제한 요소선택") 
 		       		  	
 		       		  	---------- jq_select1_13.html 파일실습 
 		       		  	
@@ -193,8 +192,8 @@
 						
 						----------------- jq_application.html 응용 종합 실습 		$.inArray() $.grep() $.map() $.merge() 복습
 
-					    ----------------- application.html 학생관리시스템   <--------------- *** 값 추가하고 삭제하는 예제 (ex.댓글, 게시글 추가 삭제할 때 활용 가능)
-						----------------- application2.html 할일목록 
+***중요실습				----------------- application.html 학생관리시스템   <--------------- *** 값 추가하고 삭제하는 예제 (ex.댓글, 게시글 추가 삭제할 때 활용 가능)
+***중요실습				----------------- application2.html 할일목록 
 						
 					
    					
@@ -202,17 +201,17 @@
    			       	    ----------------- jq_selec2_11_test.html 파일 실습    속성과 값에 따른 탐색 선택자 
 ***완전중요***   			----------------- jq_selec2_12_test_.html 파일 실습    속성상태에 따른 탐색 선택자  	 
    					    
-   					    ----------------- jq_selec2_13_test.html 파일 실습    그외 콘텐츠 탐색 선택자1
+***.not() 많이 사용 		----------------- jq_selec2_13_test.html 파일 실습    그외 콘텐츠 탐색 선택자1                             
    					    ----------------- jq_selec2_14_test.html 파일 실습    그외 콘텐츠 탐색 선택자2
    					    	
    					    1.2.2.2. 속성 탐색 선택자와 알아두면 유용한 메서드 종류 실습
-   					    ----------------- jq_selec2_15_test.html 파일 실습      is()
+***많이사용   				----------------- jq_selec2_15_test.html 파일 실습                 is()
 
-						----------------- jq_selec2_16_test.html 파일 실습
-								                    $.get() 메소드
+***완전중요*** 			----------------- jq_selec2_16_test.html 파일 실습			$.get() 메소드 - 외부서버페이지에서 값을 가져와서 사용할 경우
+						
+						----------------- jq_selec2_17_test.html 파일 실습			$.noConflict() 메소드 - 외부js를 불러와서 쓸 경우 충돌을 방지
 
-						------------------ jq_selec2_17_test.html 파일 실습
-													$.noConflict() 메소드
+													
   
   
   
@@ -220,69 +219,68 @@
    					
 			2. 문서 객체 조작메소드 ?
 			   - 문서 객체를 생성, 복제, 삭제, 속성 변환하는 메소드.
-			   - 
-			   	  예1.선택한 요소에 새요소를 만듭니다. - 새 요소 생성
+			    
+			   		예1.선택한 요소에 새요소를 만듭니다. - 새 요소 생성
 					 	<div></div>         ->     <div><p>내용</p></div>	   
 				  
 				  	예2.요소를 복제하여 선택한 요소에 삽입합니다.  - 복제 
-				    <div>내용1</div>     ->     <div>내용1</div>  
-				     														 <div>내용1</div>
+				   		<div>내용1</div>     ->     <div>내용1</div>  				     													
 			   
-						예3.선택한 요소를 삭제합니다. - 삭제
-						<div><p>내용</p></div>   -> <div></div>
+					예3.선택한 요소를 삭제합니다. - 삭제
+						<div><p>내용</p></div>   -> 	  <div></div>
 			         
-						예4.선택한 요소의 속성 값을 변경 또는 추가 합니다.그리고 기존의 속성과 값을 삭제도 합니다. - 속성 변환
+					예4.선택한 요소의 속성 값을 변경 또는 추가 합니다.그리고 기존의 속성과 값을 삭제도 합니다. - 속성 변환
 						
 							속성값을 변경 한 경우 
-							<img src="btn_on.gif" alt="버튼1" />    -> <img src="btn_off.gif" alt="버튼2" />    
+							<img src="btn_on.gif" alt="버튼1" />    -> 	 <img src="btn_off.gif" alt="버튼2" />    
 										
 							속성값을 추가 한 경우     
-							<img src="btn_on.gif" />    -> 	<img src="btn_on.gif" alt="버튼1" />
+							<img src="btn_on.gif" />    -> 		<img src="btn_on.gif" alt="버튼1" />
 						
 							속성값을 삭제한 경우     
 							<img src="btn_on.gif" alt="버튼1" />    -> 	<img src="btn_on.gif" /> 
 			   
-			  - 문서 객체 조작메소드 종류
-			        2-1. 속성조작 메소드 - 요소의 속성을 조작할때 사용하는 메소드 
-			        2-2. 수치조작 메소드 - 요소의 속성을 수치조작을할때 사용하는 메소드 
-			        2-3. 객체 편집 메소드- 선택한 요소를 복제 하거나,새요소를 생성하거나,
-			                               복제 하거나 새로 생성된 요소를 의도한 위치에 삽입 시키는 메소드 
+			   - 문서 객체 조작메소드 종류
+			         2-1. 속성조작 메소드 - 요소의 속성을 조작할때 사용하는 메소드 
+			         2-2. 수치조작 메소드 - 요소의 속성을 수치조작을할때 사용하는 메소드 
+			         2-3. 객체 편집 메소드- 선택한 요소를 복제 하거나,새요소를 생성하거나,
+			                                                     복제 하거나 새로 생성된 요소를 의도한 위치에 삽입 시키는 메소드 
 			        
 			       
-			         2-1. 속성조작 메소드 실습
+***많이사용			 2-1. 속성조작 메소드 실습
 			         
-			         ------------------jq_selec3_1_test.html 파일 실습       html()  ,  text() 메소드
-					 			------------------jq_selec3_2_test.html 파일 실습       attr()  ,  removeAttr() 메소드	
-							------------------jq_selec3_3_test.html  223page 파일 실습      addClass()  ,  
-					                                                  								removeClass(),  
-					                                                  								toggleClass(),
-					                                                  									hasClass() 메소드 	
+***많이사용			 ------------------jq_selec3_1_test.html 파일 실습       html()  ,  text() 메소드
+					 ------------------jq_selec3_2_test.html 파일 실습       attr()  ,  removeAttr() 메소드	
+					 ------------------jq_selec3_3_test.html  223page 파일 실습       addClass()  ,  
+					                                                  			removeClass(),  
+					                                                  			toggleClass(),
+					                                                  			hasClass() 메소드 	
 						
-					 ------------------jq_selec3_4_test.html 파일 실습      val() 메소드
+***많이사용			 ------------------jq_selec3_4_test.html 파일 실습      val() 메소드
 					 ------------------jq_selec3_5_test.html 파일 실습      prop() 메소드
 					
 					
 					
 					 2-2. 수치조작 메소드 실습
-					 ------------------jq_selec3_6_test.html 파일 실습  width(), height(), 
-					                                                  innerHeight(), innerWidth(), 
-					                                                  outerHeight(),outerWidth() 메소드
+					 ------------------jq_selec3_6_test.html 파일 실습   width(), height(), 
+					                                                 innerHeight(), innerWidth(), 
+					                                                 outerHeight(),outerWidth() 메소드
 					 
 
 					 ------------------jq_selec3_7_test.html 파일 실습    position(), offset() 메소드
 						
-					 ------------------jq_selec3_8_test.html 파일 실습   scrollTop() 메소드
-					
+***유용함				 ------------------jq_selec3_8_test.html 파일 실습   scrollTop() 메소드		***** 홈페이지의 퀵메뉴 설정시 유용
+																								    사용자가 스크롤을 내릴 때 퀵메뉴 영역이 따라 내려갈 수 있도록 설정 가능
 
-					2-3. 객체 편집 메소드 실습
+***완전중요***		 2-3. 객체 편집 메소드 실습
+많이쓰는건 *표시					 
+					 ------------------jq_selec3_9_test.html 파일 실습   before(), insertBefore(), *after(), insertAfter() 메소드
 					 
-					 ------------------jq_selec3_9_test.html 파일 실습   before(), insertBefore(), after(), insertAfter() 메소드
-					 
-					 ------------------jq_selec3_10_test.html 파일 실습   append(), appendTo(), prepend(), predpendTo() 메소드
+				     ------------------jq_selec3_10_test.html 파일 실습   *append(), appendTo(), prepend(), predpendTo() 메소드
 					
-					 ------------------jq_selec3_11_test.html 파일 실습   clone(), empty(), remove() 메소드
+					 ------------------jq_selec3_11_test.html 파일 실습   clone(), *empty(), *remove() 메소드
 					
-					 ------------------jq_selec3_12_test.html 파일 실습   replaceAll(), replaceWith() 메소드
+					 ------------------jq_selec3_12_test.html 파일 실습   *replaceAll(), *replaceWith() 메소드
 					
 					 ------------------jq_selec3_13_test.html 파일 실습   unwrap(), wrap(), wrapAll(), wrapInner() 메소드
 

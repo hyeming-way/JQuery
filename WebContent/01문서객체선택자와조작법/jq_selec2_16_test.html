@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	
+	 <!--
+      $.get() 메소드
+      - 다른 외부 서버페이지로부터 데이터를 비동기적으로 가져오는데 사용되는 메소드
+      - 주로 REST API와의 통신에 사용되며, GET 요청을 통해 데이터를 요청할떄 쓰임
+      - 문법
+           $.get(요청할_서버페이지_URL, 
+           		 서버페이지로 요청전송할 데이터(객체형식) - 선택사항,
+                               요청이 성공했을때 호출될 콜백함수 function);
+  	-->
+  	
+	<!-- 
+		JSON? JavaScriptObjectNotation
+		자바스크립트 기반의 객체 
+		{속성:값}...
+		
+		post	추가요청명령
+		get		조회요청명령
+	-->
+	
+	<button id="fetch-data">다른 서버페이지에서 JSON데이터 요청해서 가져오기</button> 
+	<div id="result"></div>
+	
+	<script>
+		//위 버튼을 클릭했을 때 이벤트 처리
+		$("#fetch-data").click(function(){
+			
+				//데이터를 요청할 외부 서버페이지 주소 URL, get요청이 성공했을 때 
+				//								   요청에 따른 응답데이터를 받을 콜백함수
+			$.get("https://jsonplaceholder.typicode.com/posts/1", 
+				  function(data){
+					
+					$("#result").html("<h2>"+ data.userId +"</h2><p>" + data.body + "</p>");
+					/*		
+					data{
+							userId: 1, 
+							id: 1, 
+							title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 
+							body: 'quia et suscipit\nsuscipit recusandae consequuntur …strum rerum est autem sunt rem eveniet architecto'
+						}
+					*/
+					
+				
+			});
+			
+		});
+	
+	
+	</script>
+	
+	
+	
+
+
+</body>
+</html>

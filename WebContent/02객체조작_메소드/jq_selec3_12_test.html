@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>
+	<!-- 
+		 객체 편집 메소드 종류
+		 
+		 replaceAll()  , replaceWith()
+		 
+		 - 선택한 요소를  다른 새로생성한 요소로 바꿀 때 사용합니다. 
+		      선택한 모든 요소를 한꺼번에 바꿀때 사용 합니다. 
+	
+		 - 문법
+		 		$("새요소").replaceAll("요소선택");
+		 		
+		 		$("요소선택").replaceWith("새요소");
+		 	
+	
+	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ){
+		
+			//h2요소들 2쌍을 선택해서 가져와 뒤에 작성한 <h3>으로 모두 바꾼다.
+			$("h2").replaceWith("<h3>replaceWith</h3>");
+		
+			
+			
+			//바꿀 새요소 p를 생성하여 뒤에 작성해서 선택한 <div>요소들을 모두 바꾼다. 
+			//$("새요소").replaceAll("요소선택");
+			$("<p>Change</p>").replaceAll($("div"));
+		
+			
+	});
+	</script>
+</head>
+<body>
+	<section class="box1">
+		<h2>제목1</h2>
+		<div>내용1</div>
+		<div>내용2</div>
+	</section>
+	<section class="box2">
+		<h2>제목2</h2>    
+		<div>내용3</div>
+		<div>내용4</div>
+	</section>
+</body>
+</html>
+
+
+
+

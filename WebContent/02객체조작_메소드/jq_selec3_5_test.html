@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+	<!-- 
+		
+		prop()
+		 
+			- 선택한 폼 요소(선택상자, 체크박스, 라디오버튼)의  상태 속성값을 가져오거나 새롭게 설정할떄 사용되는 메소드 	 
+			- 선택한 요소의 태그명, 노드타입, 선택상자의 option태그가 선택되어 있으면  인덱스 번호를 반환 하는 메소드 
+			- 문법1.
+					$("요소선택").prop("checked" 또는 "selected");
+					해석 : 선택한 폼요소가 체크된(checked속성이 설정되어 있는) 상태인지, 
+					           선택된(selected속성이 설정되어 있는) 상태인지 
+					           알아 내는데  true 또는 false를 반환 합니다.
+			
+			- 문법2. $("요소선택").prop("checked" 또는 "selected"  ,  true 또는 false);
+					해석 : 폼요소를 선택하여 체크 또는 선택상태를 변경 시킬수 있다.  
+					      true값을 넣으면  체크또는 선택이 되게 하고
+					      false값을 넣으면 미체크 또는 미선택되게 합니다. 
+			
+			- 문법3(사용안하는 편이 좋음)
+					$("요소선택").prop("tagName" 또는 "nodeType" 또는  "selectedIndex" 또는  "defaultValue");
+					 해석 : 선택한 요소의 태그명(tagName)이나 노트타입(nodeType), 
+					            선택상자에서 선택된 option태그의 인덱스 위치번호를 구합니다.
+						    만약 prop("defaultValue");
+							-> 사용자가 value속성값을 변경 시켜도 
+							      초기에 설정된 value속성의 값을 가져올수 있습니다. 
+			
+		
+		
+		참고  nodeType이란?
+			HTML요소에는 각각의 nodeType속성이 있는데 이속성을 호출하면  
+			DOM(HTML)의 노드를 구별할수 있는 정수값을 반환받을수 있습니다.
+			
+			DOM요소에서 nodeType속성을 호출하면 다음과 같은 정수를 얻을수 있다.
+			
+			1. HTML태그   <h1>텍스트</h1> 		 ->  <h1></h1>   ElementNode    정수값 1
+			2. 텍스트        <h1>텍스트</h1> 		 ->  텍스트               TextNode       정수값 3
+			3. 주석기호     <!--  ->        		 ->  <!-- ->     CommentNode    정수값 8
+			4. jq_selec3_5_test.html문서파일      ->              DocumentNode   정수값 9
+			5. 속성          <img src="경로">       ->  src         AttributeNode  정수값 2
+			 
+		
+			("요소선택").prop("nodeType");
+		
+	 -->
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script>
+	$(function( ){
+		
+		//<input type="checkbox" name="chk1" id="chk1"> 선택해서
+		//.prop("checked") 메소드를 호출하면
+		//선택해서 가져온 체크박스<input>이 체크가 된 상태이면 ture반환하고 아니면 false반환
+		let result_1 = $("#chk1").prop("checked"); //체크되어있느냐?
+		console.log(result_1); //false
+		
+		//<input type="checkbox" name="chk2" id="chk2" checked> 선택해서
+		//.prop("checked") 메소드를 호출하고 반환값 확인
+		let result_2 = $("#chk2").prop("checked");
+		console.log(result_2); //ture
+		
+		//--------------------------------------------------------------------
+		
+		//id="chk3"인 <input>체크박스를 선택해서
+		//prop("checked", true); 메소드를 호출하면
+		//미체크된 상태면 true를 넣어줘서 강제로 체크된 상태의 속성을 설정할 수 있다.
+		let result_3 = $("#chk3").prop("checked", true);
+		console.log(result_3);
+		
+		//id="se_1"인 <select>를 선택해서 가져와
+		//selected속성이 설정된(선택된) <option>요소의 인덱스를 반환합니다.
+		let result_4 = $("#se_1").prop("selectedIndex");
+		console.log(result_4); //2
+		
+		//--------------------------------------------------------------------
+		
+		let result_5 = $("label:eq(0)").prop("nodeType"); //노드 타입이 무엇이냐?
+		console.log(result_5); //<label for="chk1">chk1</label>	요소노드 - 정수 1 반환
+		
+		//--------------------------------------------------------------------
+		
+		//ID:<input type="text" name="id" id="user_id" value="admin">의
+		//value속성값을 scott로 변경하자
+		$("#user_id").val("scott"); //ID:<input type="text" name="id" id="user_id" value="scott">
+		
+		//prop메소드에 defaultValue속성명을 넣어주면
+		//초기에 설정된 value="admin"인 admin을 얻을 수 있다.
+		let result_6 = $("#user_id").prop("defaultValue");
+		console.log(result_6); //admin
+		
+	});
+	</script>
+</head>
+<body>
+	<h1><strong>객체 조작 및 생성</strong></h1>
+	<form action="#" id="form_1">
+		<p>
+			ID:<input type="text" name="id" id="user_id" value="admin" >
+		</p>
+		<p>
+			<input type="checkbox" name="chk1" id="chk1">
+			<label for="chk1">chk1</label>
+			<input type="checkbox" name="chk2" id="chk2" checked>
+			<label for="chk2">chk2</label>
+			<input type="checkbox" name="chk3" id="chk3" >
+			<label for="chk3">chk3</label>
+		</p>
+		<p>
+			<select name="se_1" id="se_1">
+				<option value="opt1">option1</option>
+				<option value="opt2">option2</option>
+				<option value="opt3" selected>option3</option>
+			</select>
+		</p>			
+	</form>
+</body>
+</html>
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+	<!-- 
+		DOM객체(HTML태그) 편집 메소드 종류
+		
+		append() , appendTo()
+		- 선택한 요소 내의 마지막 위치에 새요소를 생성하고 추가합니다.
+		- $("요소선택").append("새요소");
+		- $("새요소").appendTo("요소선택");
+	
+		prepend() , prependTo()
+		- 선택한 요소 내의 앞위치에 새요소를 생성하고 추가합니다.
+		- $("요소선택").prepend("새요소");
+		- $("새요소").prependTo("요소선택");
+	
+	 -->
+	 
+	<ul id="listZone">
+		<li>리스트</li>
+	</ul>
+	<script>
+		//ul요소를 선택하고 새 요소를 가장 뒤쪽에 추가
+		$("#listZone").append("<li style=color:red>리스트 append</li>");
+		
+		$("<li style=color:green>리스트 appendTo</li>").appendTo("#listZone");
+		
+		
+		//ul요소를 선택하고 새 요소를 가장 앞쪽에 추가
+		$("#listZone").prepend("<li style=color:red>리스트 prepend</li>");
+		
+		$("<li style=color:green>리스트 prependTo</li>").prependTo("#listZone");
+	
+	</script>
+</body>
+</html>

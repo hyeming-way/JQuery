@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+	<!-- 
+		객체 편집 메소드 종류
+		
+		before() , insertBefore()
+		- 선택한 요소의 이전 위치에 새요소를 생성하여 추가 하는 메소드 
+		- $("요소선택").before("추가할 새요소생성");
+		- $("추가할 새요소").insertBefore("요소선택");
+		
+		after() , insertAfter()
+		- 선택한 요소의 다음 위치에 새요소를 생성하여 추가 하는 메소드
+		- $("요소선택").after("추가할 새요소생성");
+		- $("추가할 새요소").insertAfter("요소선택");
+	 -->
+
+
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ){
+		//1. <div id="wrap">를 선택
+		//2. 하위 p요소들을 배열에 담아 선택
+		//3. 2 index에 저장된 요소를 최종 선택
+		//4. after()메소드를 호출해 <p>내용3</p>요소 뒤에 새 요소인 "<p>After</p>"를 동적으로 추가
+		$("#wrap p:eq(2)").after("<p style = background-color:pink>After</p>");
+		
+		//<p>내용2</p> 뒤에 새 요소 추가
+		$("<p style = background-color:pink>insertAfter</p>").insertAfter("#wrap p:eq(1)"); 
+		
+		//<p>내용2</p> 앞에 새 요소 추가
+		$("p").eq(1).before("<p style = background-color:pink>Before</p>");
+		
+		//<p>내용1</p> 앞에 새 요소 추가
+		$("<p style = background-color:pink>insertBefore</p>").insertBefore("p:eq(0)");
+		
+
+	});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<!-- <p>inssertBefore</p> -->
+		<p>내용1</p>
+		<!-- <p>Before</p> -->
+		<p>내용2</p>
+		<!--  <p>insertAfter</p>    -->
+		<p>내용3</p>
+		<!-- <p>After</p> -->
+	</div>
+</body>
+</html>
+
+
+
