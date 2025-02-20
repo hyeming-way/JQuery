@@ -368,12 +368,12 @@
 			    
 			    -------------- jq_event1_4_test.html     로딩 이벤트를 등록하는 단독이벤트 등록메소드  ready() , load() 메소드
 			    
-			    -------------- jq_event1_5_test.html     <a>, <form>태그에 클릭이벤트 적용시 기본이벤트 차단하기    
+***유효성체크시 필요-------------- jq_event1_5_test.html     <a>, <form>태그에 클릭이벤트 적용시 기본이벤트 차단하기    
 			  
 			  	-------------- jq_event1_6_test.html     mouseover, mouseout, hover 이벤트 등록  
 			  
 			  	-------------- jq_event1_7_test.html     mouseenter, mouseleave 이벤트 등록 
-			    -------------  jq_event1_7_1_test.html
+			    -------------- jq_event1_7_1_test.html
  
       			-------------- jq_event1_8_test.html     mousemove 이벤트 등록 
  				
