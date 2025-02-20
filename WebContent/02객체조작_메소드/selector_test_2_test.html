@@ -11,6 +11,7 @@
 	$(function(){
 	//방법1.  <li>내용3</li> 선택해서 가져와 바깥 테두리 선 굵기 1px, 가는 실선, 노란색 선으로 설정
 	$("#myList li").eq(2).css("border", "1px solid yellow");
+	//$("#myList li:contains('내용3')").css("border", "1px solid yellow");
 		
 	
 	//방법2. eq(2)를 사용하여 세 번째 <li> 요소 선택 후 글자색상을 빨간색으로 설정
@@ -21,11 +22,20 @@
 	//      컨텐츠영역에 "내용3" 텍스트를 가진 세번째 <li>요소 만 선택 후 배경색을 다시 aqua로 설정
 	$("#myList li").each(function(idx, elem){
 		
-		if(idx === 2)
+		if(idx === 2){
 			
-			return $(this).css("background", "aqua");
+			$(this).css("backgroundColor", "aqua")};
 		
 	})
+	
+	/*
+	$("#myList li").each(function(){
+		
+		if($(this).text() === "내용3"){ 
+			
+			$(this).css("backgroundColor", "aqua")};
+			
+	*/
 	   
 	});
 

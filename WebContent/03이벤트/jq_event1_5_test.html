@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 제이쿼리 설치 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function(){
+/*			
+	<a>, <form>태그에 click이벤트 등록시 기본으로 적용된 이벤트 차단하기 	
+		- <a>태그에는 click이벤트를 등록 해 놓고 
+			 사이트이용자가 <a>태그를 click이벤트 동작을 할떄마다
+		  href속성에 적힌 주소로 이동되는 문제가 있습니다.
+		  그러므로 click이벤트를 등록 했을때 
+			function이벤트 핸들러함수의 이벤트 처리 코드가 실행되지 않는다는
+		  것 입니다.   
+			이문제를 해결하려면 href속성을 작성한 기본 클릭이벤트 기능을 차단 해야 합니다.
+
+		  예)   <a href="http://www.naver.com">네이버</a>
+		  	
+		  		$("a").click(function(){ 이벤트처리코드작성;     });
+		  
+		  			문제 해결방법1.   return false;를 function내부에 작성해서 href속성의 이벤트 차단!
+		  			
+		  			$("a").click(function(){ 
+		  				이벤트처리코드작성;     
+		  				return false;  //a태그의 href속성의 클릭이벤트 나중에 차단
+		  			});
+		  		
+		  			문제 해결방법2.  이벤트객체의 preventDefault()메소드 호출 구문을 작성해 
+		  						 					  href속성의 이벤트 차단!
+		  						  
+					$("a").click(function(event){ 
+						
+						event.preventDefault(); //a태그의 href속성의 클릭이벤트 먼저 차단
+						
+		  				이벤트처리코드작성;     //실행
+		  			});
+		  						  
+*/
+
+
+
+
+
+			
+		});
+	
+	</script>
+</head>
+<body>
+	<p><a href="http://www.easyspub.co.kr/" class="btn1">버튼1</a></p>
+	<p class="txt1">내용1</p>
+	<p><a href="http://www.easyspub.co.kr/" class="btn2">버튼2</a></p>
+	<p class="txt2">내용2</p>
+	<p><button class="btn3">버튼3</button></p>
+	<p class="txt3">내용3</p>
+
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 제이쿼리 설치 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+	<p>
+		<button class="btn1">버튼1</button>
+	</p>
+	<p>내용1</p>
+	<p>
+		<button class="btn2">버튼2</button>
+	</p>
+	<p>내용2</p>
+	
+	<script type="text/javascript">
+		//주제 : 등록한 이벤트를 요소에서 제거 시키는  off()메소드 사용법
+		//문법
+		//	 $("등록된이벤트가있는요소선택").off("제거할이벤트종류명1 제거할이벤트종류명2");
+	  
+		//<button class="btn1">버튼1</button>에 클릭이벤트 등록
+		$(".btn1").on("click", function(){
+			
+			//<p>내용1</p>을 선택해서 글자색을 빨간색으로 설정
+			$("p:eq(1)").css("color", "red");
+			
+		});
+		
+		//클릭이벤트가 등록된 <button class="btn1">버튼1</button>를 선택해서
+		//off메소드를 호출하여 등록된 클릭이벤트 제거
+		$(".btn1").off("click");
+	
+//-------------------------------------------------------------------------------------		
+		
+		//<button class="btn2">버튼2</button>에 마우스오버, 포커스 이벤트 다중 등록
+		$(".btn2").on("mouseover focus", function(){
+			
+			$("p:eq(3)").css("color", "blue");
+			
+		});
+	/*
+		$(".btn2").on({		
+			"mouseover focus" : function(){
+				$("p:eq(3)").css("color", "blue");
+			}		
+		});
+	*/
+	
+		//위 등록한 다중 이벤트를 모두 제거
+		$(".btn2").off("mouseover focus");
+		
+		
+		
+	</script>
+	
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
