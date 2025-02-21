@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		/*
+			hide()메소드
+			- 노출되어 있는 요소를 다시 숨기는 효과를 주는 메소드
+			- 기본문법
+				$("효과를줄요소선택").hide("효과속도", 콜백함수);
+				해석 : 선택한 요소를 효과속도에 맞춰 숨긴 후 숨김이 완료되면 콜백함수의 실행문을 실행시킵니다
+				
+				효과속도란? 요소를 숨기거나 노출시킬떄 바뀌는 속도를 말합니다.
+						  효과속도 값의 종류는 fast 또는 normal 또는  slow 또는
+						                 1/1000 초 단위인 밀리초로 입력할수 있다.
+						  예) 1000 -> 1초 ,  5000 -> 5초 ,   500 -> 0.5초 
+						  
+				콜백함수란? 선택한 요소에 효과가 모두완료되면 자동으로 호출되어 실행되는 함수!
+						  콜백함수 자리에는 적지않아도 되므로 생략 가능함
+				
+			----------------------------------------------------------------
+			
+			show() 메소드 
+			- 숨겨져 있던 요소를 다시 노출시키는 효과를 주는 메소드 
+			- 기본문법
+				$("효과를줄요소선택").show("효과속도", 콜백함수);
+						  
+				해석 : 선택한 요소가 숨겨져 있을 경우 효과속도에 맞춰 다시 노출시키고 
+				      노출이 완료되면 콜백함수의 실행문을 실행시킵니다.				
+		*/
+	</script>
+	
+	<style>
+		 h1{ width: 50px;   height: 30px;   background-color: red;  font-size: 100%; }
+	</style>
+</head>
+<body>
+	<button id="btn1">Hide</button>   <button id="btn2">Show</button>
+	<h1>내용</h1>
+	
+	<script type="text/javascript">
+	
+		//id="btn1" <button>요소를 선택해서 click이벤트 등록
+		$("#btn1").on("click", function(){
+
+			//<h1>내용</h1>요소를 선택해 1총만 <h1>요소가 화면에서 숨겨지는 효과 주자!
+			//그리고 숨김이 완료되면 콜백함수 function의 중괄호{}의 실행문이 실행되게 작성
+			$("h1").hide(1000,function(){  alert('숨김완료');   });
+
+		});
+
+		//id="btn2" <button>요소를 선택해서 click이벤트 등록
+		$("#btn2").click(function(){
+
+			//<h1>내용</h1>요소를 선택하여  1초만에 <h1>요소가 숨겨져 있으면 다시 노출!
+			$("h1").show(1000);
+
+		});
+
+		
+
+		
+	</script>
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

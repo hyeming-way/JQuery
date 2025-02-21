@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+	<!-- 
+		delegate()
+		- 선택한 요소의 하위요소에 이벤트를 다중등록하는메소드로
+		    이벤트를 등록한 이후에도 동적으로 생성된 요소와 복제된 요소에도 이벤트를 등록할수 있는 메소드.
+	    - 문법
+	    	$(document 또는 "이벤트대상의 상위요소선택").delegate("이벤트 대상요소 선택", "이벤트종류", function(){ 
+	    	
+	    		이벤트 처리 코드 작성;
+	    	});
+		
+		one()
+		- 선택한 요소에 일회성 이벤트를 등록할때 사용하는 메소드로
+		    등록 문법에 따라 라이브 이벤트도 등록 가능 합니다.
+		
+		- 1. 기본 이벤트 등록 문법
+			 $("이벤트 대상요소선택").one("이벤트종류",function(){ 이벤트처리코드작성;  });
+		
+		
+		  2. 라이브 이벤트 등록 문법
+		     $(document 또는 "이벤트 대상 상위요소선택").one("이벤트종류","동적으로생성된등록할요소선택", function(){  이벤트처리코드작성; });
+			
+	 -->
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+		
+	
+		
+		//이벤트 등록 대상인 <button>버튼1</button>의 상위요소 <p>요소를 선택해서 
+		//선택한 상위요소 <p>내부에 만들어져 있는 <button>버튼1</button>하위요소에 mouseover 와  focus이벤트를 등록
+    	$(".btn_wrap").delegate(".btn_1.on", "mouseover focus", function(){ 
+	    	
+    		alert("HELLO!");
+    	});
+    	//<button class="btn_1">버튼1</button>선택해서  class속성에 on값을 추가로 설정
+		$(".btn_1").addClass("on");
+    	
+    	//----------------------------------------------------------------------------------------
+    	
+		$(document).one("mouseover focus",".btn_2.on", function(){  alert('WELCOME!'); });
+		
+		
+		$(".btn_2").addClass("on");
+		
+	});
+	</script>
+</head>
+<body>
+<div id="wrap">
+	<p class="btn_wrap">
+		<button class="btn_1">버튼1</button>
+	</p>
+	<p><button class="btn_2">버튼2</button></p>
+</div>
+</body>
+</html>
+
+
+

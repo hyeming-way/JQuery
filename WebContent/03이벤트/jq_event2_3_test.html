@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>
+	<!-- 
+		change() 이벤트 등록 메소드
+		
+		- 선택한 폼요소의 value속성값을  새로운 값으로 변경시 사용하는 메소드이고,
+		    포커스가 다른 요소로 이동하는 이벤트를 등록하는 메소드 입니다.
+		- 선택상자 <select> <option>요소에 이벤트를 등록하는 메소드 입니다.
+		
+		- 문법
+				$("이벤트대상요소선택").change(function(){ 이벤트 처리코드; });
+				$("이벤트대상요소선택").on("change", function(){ 이벤트 처리코드; });
+	
+				$("이벤트대상요소선택").change();   <- 강제로 <option>을 선택 할수 있게 합니다. 
+	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+		
+		//<select>요소를 선택해서  다른 option을 선택하는 동작(이벤트)를 등록하기 위해 change메소드 호출!
+		$("#rel_site").change(function(){
+			
+			//class="txt"인 <p>요소를 선택해서 가져와
+			//<p>콘텐츠영역</p>의 콘텐츠 영역에  선택한 <option>요소(이벤트가 발생한 요소 $(this) )의 value속성에 설정된 값을
+			//얻어 넣는다.
+			
+			var selectedOption = $(this).val();
+			$(".txt").text(selectedOption);
+				
+		});
+		
+		//아래의 <select id="rel">....</select>선택해서 
+		//.val("값")메소드를 이용해  값이 e인 <option>을 선택하고 강제로 선택한 상태의 화면을 보여주기 위해 change()메소드 호출!
+		$("#rel").val("e").change();
+		
+	
+	});
+	</script>
+</head>
+<body>
+	<select id="rel">
+		<option>과목선택</option>
+		<option value="k">국어</option>
+		<option value="e">영어</option>
+		<option value="m">수학</option>
+	</select>
+	<select id="rel_site">
+		<option value="">사이트 선택</option>
+		<option value="www.google.com">구글</option>
+		<option value="www.naver.com">네이버</option>
+		<option value="www.daum.net">다음</option>
+	</select>
+	<p class="txt"></p>
+</body>
+</html>
+
+
+
+

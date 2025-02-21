@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+	<!-- 
+		마우스 이벤트에 대한 키보드 대응 이벤트 
+		
+			  마우스이벤트 			키보드이벤트
+			  mouseover					focus
+			  mouseout					blur
+			  	  
+		1. 키보드 접근성을 배려 하지 않은  이벤트 등록예
+		
+			<button class="btn">버튼 </button>
+			<p class="txt_1">내용1</p>
+		
+			$(".btn").mouseover(function(){
+			
+				$(".txt_1").hide();
+			});	
+		
+		2. 키보드 접근을 배려한 이벤트 등록 예    (추천)
+			
+			<button class="btn">버튼 </button>
+			<p class="txt_1">내용1</p>
+			
+			$(".btn").on("mouseover focus", function(){
+			
+				$(".txt_1").hide();
+			
+			});
+	 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+/*
+		//마우스에 대응되는 키보드 이벤트 등록 안함! 비추천
+		$("#btn1").data({"text":"javascript"}).on({
+													"mouseover":overFnc,
+													"mouseout":outFnc
+												});
+
+*/
+		//마우스에 대응되는 키보드 이벤트 등록 함! 추천
+		$("#btn1").data({"text":"javascript"}).on({
+													"mouseover focus":overFnc,
+													"mouseout blur":outFnc
+												});
+	
+
+		 //선택한 버튼요소에 마우스포인터가 올라가 있다가 내리는 순간(mouseout) 호출되는
+		 //이벤트 핸들러 함수 외부에 만들어 놓기
+		 function outFnc(){
+			//이벤트 처리 코드
+			//<p class="txt">javascript</p> 
+			$(".txt").text("");
+		 }
+
+		 //선택한 버튼 요소에 마우스포인터를 올리는 순간(mouseover) 호출되는
+		 //이벤트 핸들러 함수 외부에 만들어 놓기
+		 function overFnc(){
+			 //이벤트 처리 코드
+			 //<p class="txt"></p> 선택해 ....
+			 $(".txt").text(   $(this).data("text")  );
+		 }
+	});
+
+
+
+	</script>
+</head>
+<body>
+	<p><button id="btn1" data-text="javascript" >버튼1</button></p>
+	<p><button id="btn2">버튼2</button></p>
+	<p class="txt"></p>
+</body>
+</html>
+
+
+
+
+
+
+

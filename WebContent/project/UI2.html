@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 
+		주제 : 제이쿼리 UI플러그인을 사용해 드래그 레이어 창 만들기 
+		
+		Jquery UI플러그인을 사용하기 위해서 아래의  순서1. 순서2. 순서로 
+		<script>선언문을 작성 해 놓고 사용해야 한다.
+	 -->
+	 
+   <link rel="stylesheet" href="css/jquery-ui.min.css">
+
+	 
+	<!-- 순서1. 제이쿼리 라이브러리 설치 JS파일 연동 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<!-- 순서2. 다운받은 JQuery UI플러그인 JS파일 연동 -->
+	<script src="js/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(function(){
+			
+			/*
+				<input>태그에 달력기능 설정을 위해 datepicker()메소드를 호출했습니다.
+				이전 기간을 선택할수 없게 달력화면에서 비활성화 하기 위해
+				{} 객체 형태의 CSS속성과 값을 설정함.
+				
+				minDate속성은 선택할수 있는 시작 날짜 설정하는 속성으로
+				+1 값을 설정하면 현재오늘날짜 그다음날짜 부터 날짜를 선택하게 합니다.
+				
+				maxDate속성은 선택할수 있는 종료 날짜 설정하는 속성으로 
+				"+1M" 선택할수 있는 시작날짜부터 한달위  일 까지 선택하게  달력의 날짜가 활성화 됩니다.
+			*/
+			$("#startDate").datepicker({ minDate:+1, maxDate:"+1M"});
+			
+			
+		});
+	
+	</script>
+
+</head>
+<body>
+	<p>
+		<label for="startDate">날짜선택</label>
+		<input type="text" id="startDate" name="startDate">
+	</p>
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

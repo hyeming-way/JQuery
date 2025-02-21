@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>
+	<!-- 
+		 그룹 이벤트 등록 메소드 
+		 - 선택한 요소에 하나이상의 이벤트들을 등록하는 메소드
+		 - 종류
+		 	  on() 
+		 	  - 이벤트 대상요소에  하나이상의 이벤트를 등록하는 메소드로
+		 	        사용방식에 따라 이벤트를 등록한 이후에도  동적으로 생성되거나 복제된 요소에도 이벤트를 하나이상 등록할수 있는 메소드.
+		 
+		 	  - 동적으로 생성되거나 복제된 요소에 이벤트를 하나이상 등록 시키는 문법 (라이브 이벤트 등록 문법)
+		 	    $(document 또는 "이벤트대상상위요소선택").on("이벤트종류명", "이벤트대상선택", function(){ 이벤트처리코드;  });
+		 
+		 	  bind() (추천XXXXXX)
+		 	  - 위 on()메소드와 동일하게 하나이상의 이벤트를 등록하고 동적으로 생성되거나 복제된 요소에도 이벤트를 하나이상 등록이 가능 하지만
+		 	    JQuery 3 버전 이상에서는 사용을 금지 하고 있습니다.  호환 잘안됨! 
+		 	    
+		 	  delegate()
+		 	  - 선택한 요소의 하위요소에 이벤트를 하나이상 등록하는 메소드로 동적으로 생성되거나 복제된 요소에도 이벤트 처리를 할수 있습니다.
+		 	  
+		 	  one() ***
+		 	  - 이벤트 대상요소에 하나이상의 이벤트를 등록하는메소드로  지정한 이벤트가 1회 발생하고 자동으로 해제 됩니다.
+	
+	 -->
+  
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+	/*	
+	<div id="wrap">
+		<p><button class="btn_1 on">버튼1</button></p>
+		<p><button class="btn_2">버튼2</button></p>
+	</div>
+	*/			
+		//1. mouseover, focus이벤트를 등록하고  class속성의 값 on을 <button>요소에 추가 시키면 
+		//   추가시킨 <button class="btn_1 on">요소를 선택하지 못하기 때문에 다른 문법으로 on()메소드를 사용 해야 합니다.
+		
+		//class="on"을 추가 시킨  <button class="btn_1 on">버튼1</button>선택
+		$(".btn_1.on").on("mouseover focus",function(){
+			//바로 버튼을 선택해서 on붙이면 동작 X
+			
+			alert("HELLO!");
+			
+		});
+		
+		$(".btn_1").addClass("on");
+		//---------------------------------------------------------------------------------------------
+		
+		//2.라이브 이벤트 등록방식으로 on메소드에 의해  동적으로 추가된 class="btn_2 on" 속성을 가진
+		// <button class="btn_2 on">을 최종 선택해서 가져와  이벤트를 하나이상 등록 할수 있습니다.
+			
+		$("p:eq(1)").on("mouseover focus", ".btn_2.on", function(){
+			//부모요소를 선택하고 버튼요소를 가져와야 동작 가능. 라이브 이벤트..
+			
+			alert("WELCOME!");
+			
+		});
+		
+		
+		$(".btn_2").addClass("on");
+	
+	});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><button class="btn_1">버튼1</button></p>
+		<p><button class="btn_2">버튼2</button></p>
+	</div>
+</body>
+</html>
+
+
+
+

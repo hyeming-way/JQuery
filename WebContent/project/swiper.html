@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper.js jQuery 예제</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      /* 슬라이더 스타일 */
+      .swiper {
+        width: 100%;
+        height: 300px; /* 원하는 높이 설정 */
+      }
+      .swiper-slide {
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('images/visual_img_1.jpg')">
+          슬라이드 1
+        </div>
+        <div class="swiper-slide" style="background-image: url('images/visual_img_2.jpg')">
+          슬라이드 2
+        </div>
+        <div class="swiper-slide" style="background-image: url('images/visual_img_3.jpg')">
+          슬라이드 3
+        </div>
+      </div>
+      <!-- 추가 내비게이션 버튼 -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- 페이지네이션 -->
+      <div class="swiper-pagination"></div>
+    </div>
+    
+    <!-- https://swiperjs.com/   홈페이지 -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Swiper 초기화
+        const swiper = new Swiper(".swiper", {
+          loop: true, // 슬라이드 무한 루프
+          autoplay: {
+            delay: 3000, // 자동 슬라이드 간격 (밀리초)
+            disableOnInteraction: false, // 사용자 상호작용 시 자동 재생 유지
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true, // 클릭 가능 페이지네이션
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ) {
+		/*
+			mouseenter() 
+			- 선택한 요소에 마우스포인터를 올리는 동작(이벤트)을 등록시키는 메소드로,
+			  mouseover와는 달리 버블링 발생하지 않습니다.
+			   버블링이 발생하지 않기 떄문에 
+				 이벤트가 발생한 요소에서만 이벤트 처리를 수행 합니다.
+			   
+		   - 문법1.
+				$("이벤트대상요소선택").mouseenter(function(){ 이벤트처리코드;  });
+			   문법2.
+			    $("이벤트대상요소선택").on("mouseenter", function(){ 이벤트처리코드; });
+			    
+			- mouseenter이벤트를 선택한 이벤트대상요소에 강제로 발생시키기 위한 문법
+				$("이벤트대상요소선택").mouseenter();
+			
+			   
+			   
+			mouseleave()
+			- 선택한 요소에 마우스포인터를 벗어나게 하는 동작(이벤트)을 등록시키는 메소드로,
+			  mouseout와는 달리 버블링 발생하지 않습니다.
+			   버블링이 발생하지 않기 떄문에 이벤트가 발생한 요소에서만 이벤트 처리를 수행 합니다.
+			   
+		   - 문법1.
+				$("이벤트대상요소선택").mouseleave(function(){ 이벤트처리코드;  });
+			   문법2.
+			    $("이벤트대상요소선택").on("mouseleave", function(){ 이벤트처리코드; });
+			    
+			- mouseleave이벤트를 선택한 이벤트대상요소에 강제로 발생시키기 위한 문법
+				$("이벤트대상요소선택").mouseleave();		
+		*/
+	
+		$(function() {
+    // 부모 요소에 mouseenter 이벤트 등록
+    $("#parent").on("mouseenter", function() {
+        $(this).css("background-color", "lightblue");
+    });
+
+    // 자식 요소에 mouseenter 이벤트 등록
+    $("#child").on("mouseenter", function() {
+        $(this).css("background-color", "lightgreen");
+    });
+
+    // 부모 요소에 mouseleave 이벤트 등록
+    $("#parent").on("mouseleave", function() {
+        $(this).css("background-color", "");
+    });
+
+    // 자식 요소에 mouseleave 이벤트 등록
+    $("#child").on("mouseleave", function() {
+        $(this).css("background-color", "");
+    });
+});
+	</script>
+</head>
+<body>
+	<h1>버블링 발생하는 경우</h1>
+	<div id="parent">
+			<p>부모 요소</p>
+			<div id="child">
+					<p>자식 요소</p>
+			</div>
+	</div>
+</body>
+</html>

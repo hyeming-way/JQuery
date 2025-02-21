@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 
+		주제 : 제이쿼리 UI플러그인을 사용해 드래그 레이어 창 만들기 
+		
+		Jquery UI플러그인을 사용하기 위해서 아래의  순서1. 순서2. 순서로 
+		<script>선언문을 작성 해 놓고 사용해야 한다.
+	 -->
+	 
+   <link rel="stylesheet" href="css/jquery-ui.min.css">
+
+	 
+	<!-- 순서1. 제이쿼리 라이브러리 설치 JS파일 연동 -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<!-- 순서2. 다운받은 JQuery UI플러그인 JS파일 연동 -->
+	<script src="js/jquery-ui.min.js"></script>
+	
+	<style type="text/css">
+		.layer_popup{
+			
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			cursor: move; /*마우스 포인터가 십자가 모양으로 나오게 설정*/
+		}
+	</style>
+	
+	<script type="text/javascript">
+		
+	$(function(){
+		//드래드 레이어창 영역 div영역을 선택해서 드래그 기능 부여 
+		$(".layer_popup").draggable();
+	});
+	
+	</script>
+	
+</head>
+<body>
+	
+	<!--  드래그 레이어창 영역 -->
+	<div class="layer_popup">
+		<img src="images/pic_1.jpg">
+	</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+	
+	<!-- 
+		이벤트 제거 메소드
+		 - 선택한 요소에 등록된 이벤트를 제거 하는 메소드.
+		 - 종류
+		 		off() - on()메소드로 등록한 이벤트종류를 요소에서 제거하는 메소드
+		 		
+		 		문법1. 기본이벤트가 등록되었을때 
+		 			 $("이벤트제거대상요소선택").off("제거할이벤트종류명");
+		 			 
+		 		문법2. 라이브이벤트가 등록되었을때(동적으로 추가한 요소에 이벤트를 등록)
+					 $(document 또는 "이벤트제거대상요소의상위요소선택").off("제거할이벤트종류명","제거할 이벤트대상요소선택(동적DOM)");
+						 
+					 
+					 
+				unbind() - bind()메소드로 등록한 이벤트종류를 요소에서 제거 하는 메소드
+				문법
+					$("이벤트제거대상요소선택").unbind("제거할이벤트종류명");
+				
+				
+				
+				undelegate() - deleage()메소드로 등록한 이벤트종류를 요소에서 제거 하는 메소드	 
+				
+				문법1. 기본이벤트가 등록되었을때
+					  $("이벤트제거 대상요소선택").deleage("제거할이벤트종류명");
+				
+				문법2. 라이브 이벤트가 등록되었을때
+					  $(document 또는"이벤트제거대상요소의 상위요소선택").undelegate("제거할이벤트가 등록된 대상요소선택","제거할이벤트종류명");		
+				
+					 
+	 -->
+
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+		//on메소드를 이용해  '기본이벤트등록방식' 과 '라이브 이벤트 등록방식' 을 사용해 각각의 버튼에 이벤트를 등록하자.
+
+		//기본이벤트 등록방식이란? 미리 만들어져 있는 요소를 선택해 이벤트를 등록하는 방식 
+		$(".btn_1").on("mouseover",function(){
+			
+			alert("HELLO!");
+			
+		});
+		
+		//기본이벤트 등록 제거 
+		//<button class="del_1">버튼1 이벤트 해지</button>을 선택해 click이벤트 등록
+		$(".del_1").on("click",function(){
+			
+			//<button class="btn_1">버튼1<button>요소에 등록된 "mouseover" 이벤트등록 제거 
+			$(".btn_1").off("mouseover");
+			
+		});
+
+		
+	/*		
+		<div id="wrap">
+			<p><button class="btn_1">버튼1</button></p>
+			<p><button class='btn_2'>버튼2</button></p>  <- 동적으로 생성해서 추가한 요소 
+		</div>
+		<p>
+			<button class="del_1">버튼1 이벤트 해지</button> 
+			<button class="del_2">버튼2 이벤트 해지</button>
+		</p>
+	*/				
+			
+		//라이브 이벤트 등록 방식? 동적으로 생성된 요소에 이벤트를 등록하는 방식
+		$(document).on("mouseover",".btn_2",function(){
+			
+			alert("WELCOME!");
+			
+		});
+				
+		//동적으로 <p>한쌍을 만들어서 <div></div>사이에 추가!
+		$("#wrap").append("<p><button class='btn_2'>버튼2</button></p>");		
+	
+		
+		//<button class="del_2">버튼2 이벤트 해지</button> 선택해서 클릭했을때...
+		//라이브 이벤트 등록 방식 on()메소드를 사용해 등록된  "mouseover"이벤트 제거 
+		$(".del_2").on("click",function(){
+			
+			 
+			 $(document).off("mouseover",".btn_2");
+			
+		});
+		
+		
+	});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><button class="btn_1">버튼1</button></p>
+	<!-- <p><button class='btn_2'>버튼2</button></p>  동적으로 생성된 요소에 mouseover 이벤트가 등록되어 있음--> 
+	<p>
+		<button class="del_1">버튼1 이벤트 해지</button> 
+		<button class="del_2">버튼2 이벤트 해지</button>
+	</p>
+</body>
+</html>
+
+
+
+
+

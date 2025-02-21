@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function( ) {
+	   /*
+	   		mousemove() 
+	   		 - 마우스 포인터를 사이트 이용자가 이동시키는 동작(이벤트)을  
+			      문서객체(document)에 등록하는 메소드 
+
+	   		 - 문법
+	   		 		$(document).mousemove(function(event){
+	   		 			
+	   		 			//마우스포인터를 이동시키는 이벤트를 하면 처리할 코드 작성 
+	   		 			
+	   		 		});
+	   	
+	  		  참고.  위 문법의 function의 매개변수 event로 전달 받는 객체는  
+				      마우스포인터가 현재 위치한 정보를 제공하는
+	  		       clientX, clientY, pageX, pageY 이런 속성들을 
+				      만들어 놓았기때문에 호출해서 정보를 얻을수 있습니다.
+	   			
+	   */
+	   
+	  //마우스 포인터가 문서내에서 이동되는 동작(이벤트)를 문서객체에 등록
+		//사이트 이용자가 마우스를 움직이면 이벤트 핸들러 (function)가 호출되어 실행됨
+		$(document).mousemove(function(event){
+
+			//<span class="posX">0</span>요소를 선택해서
+			//매개변수로 전달 받은 event객체의 pageX속성을 호출하면
+			//스크롤 x축의 이동한 거리를 계산하여 마우스 포인터가  현재 위치한 x좌푯값 반환함
+			$(".posX").text( event.pageX );
+
+			//<span class="posY">0</span>요소를 선택해서
+			//0 대신에 현재 마우스 포인터가 위치한 좌푯값y축의 값을 얻어
+			//0 대신 설정
+			$(".posY").text(  event.pageY );
+
+		});   
+	   
+	});
+	</script>
+</head>
+<body>
+	<h1>mousemove</h1>
+	<p>X : <span class="posX">0</span>px</p>
+	<p>Y : <span class="posY">0</span>px</p>
+</body>
+</html>
+
+
+
+
+

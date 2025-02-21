@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		/*
+			scroll()
+			- 이벤트 대상요소를 선택해 대상요소에서 스크롤 막대바를 이동시키는 동작(이벤트)을 등록 하는 메소드.
+			- 문법
+				 $("이벤트대상요소선택").scroll(function(){ 이벤트처리코드;  });
+		
+				 $("이벤트대상요소선택").on("scroll", function(){ 이벤트처리코드; }   );
+		
+			- 스크롤 막대바를 강제로 이동 시키는 이벤트 방법 의 문법
+				 $("이벤트대상요소선택").scroll();
+		*/
+		//스크롤 막대바를 이동하는 동작(이벤트)를 윈도우창의 정보를 가지고 있는
+		//window객체를 선택해서 등록!
+		$(window).on("scroll", function(){
+
+			//스크롤 이벤트가 발생한 윈도우창(window객체)을 선택해서 가져와
+			//scrollTop()메소드를 호출하여 스크롤막대바가 세로(수직)방향으로
+			//이동된 거릿값(현재위치하고 있는 y축의 값)을 얻을수 있다.
+			let sc_top = $(this).scrollTop();
+
+			console.log("수직 : " + sc_top);
+
+			//<span class="top">0</span> 선택해서 가져와
+			// 0 대신 sc_top변수에 저장된 y축의 값으로 설정
+			$(".top").text(sc_top);
+
+			//----------------------------------------------------------
+
+			//스크롤 막대바가 수평 방향으로 이동한 현재 x축의 값 얻기 
+			let sc_left = $(this).scrollLeft();
+
+			//<span class="left">0</span> 선택해서 가져와
+			//0  대신 sc_left변수에 저장된 값으로 설정
+			$(".left").text(sc_left);
+		});
+
+
+		
+	</script>
+	<style>
+		body{
+			height:10000px;
+			width:5000px;
+		}
+		#wrap{
+			position: fixed;
+			left: 10px; top: 10px;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<p>scrollTop: <span class="top">0</span>px</p>
+	<p>scrollLeft: <span class="left">0</span>px</p>
+</div>
+</body>
+</html>

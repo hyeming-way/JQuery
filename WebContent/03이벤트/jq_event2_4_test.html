@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+	<!-- 
+		키보드 이벤트 
+		- 사이트 이용자가 키보드로 입력을 하면 발생하는 이벤트.
+		- keydown()
+			선택한 요소에서 키보드 자판을 누른 이벤트를 등록하는 메소드
+		  keypress()
+		  	선택한 요소에서 키보드 자판을 눌렀다 뗀 이벤트를 등록하는 메소드
+		  	
+		    차이점 : keypress()는  기능키(F1~F12, Alt, Ctrl, Shift,  화살표, Backspace, Caps Lock, 한/영, Tab등)
+		                 에 대해서 이벤트를 발생시키지 않습니다.	
+	
+		- keyup()
+			키보드의 자판의 키가 눌러져 있다가 뗀 이벤트를 등록하는 메소드 
+	 -->
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	$(function(){
+		
+		
+		//<p><input type="text" name="user_id" id="user_id"></p> 
+		
+		$(document).on("keydown", keyEventFnc);
+	
+		
+		function keyEventFnc(event){
+			
+			var direct = "";
+			
+			switch (event.keyCode) {
+				
+				case 37://키보드의  <- 방향키를 눌렀다면 
+					
+				    direct = "LEFT";
+					break;
+					
+				case 38: //키보드의  ^ 방향키를 눌렀다면
+						 //       |
+					
+					direct = "TOP";
+					break;
+				
+				case 39: //키보드의  -> 방향키를 눌렀다면 
+					
+					direct = "RIGHT";
+					break;
+						 //      |
+				case 40: //키보드의 v 방향 키를 눌렀다면 	
+					direct = "BOTTOM";	
+					break;
+					
+				default: //키보드의 방향키 이외에 다른 키를 눌렀다면 
+					break;
+			}//switch
+			
+			//키보드의 방향키를 눌렀다면?
+			if(direct){
+				//<input type="text" name="user_id" id="user_id"> 선택해서
+				// value속성에  누른 키에 대응 되는 문자열 설정
+				$("#user_id").val(direct);
+			}
+			
+		}
+
+	});
+	</script>
+</head>
+<body>
+	<p><input type="text" name="user_id" id="user_id"></p>
+</body>
+</html>
+
+
+
+
+
+

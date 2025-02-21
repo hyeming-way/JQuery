@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style>
+		 h1{ width: 50px;   height: 30px;   background-color: red;  font-size: 100%; }
+	</style>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		//웹브라우저가 jquery_effect_3.html파일 내부에 작성된 모든 HTML태그들을 읽어들이는 동작(로딩동작)
+		//을 jquery_effect_3.html파일에 등록하는 행위(ready이벤트 등록)
+		$(document).ready(function(){			
+			//fadeOut <button>을 선택해서 click이벤트를 등록하고
+			//click이벤트가 발생하면  <h1>내용</h1>요소를 선택해서 
+			//1초만에 점점 투명해지면서 숨겨지게 하는 효과를 주자 
+			/*			
+			$("#btn1").click(function(){
+
+				$("h1").fadeOut(1000);
+
+			});
+			*/
+			//fadeIn <button>을 선택해서 click이벤트를 등록하고
+			//click이벤트가 발생하면  <h1>내용</h1>요소를 선택해서 
+			//1초만에 점점 선명해 지면서 노출되게 하는 효과를 주자 			
+      /*
+			$("#btn2").click( () => $("h1").fadeIn(1000) );
+			*/
+
+			
+			//fadeToggle <button>을 선택해서 click이벤트를 등록하고
+			//click이벤트가 발생하면  <h1>내용</h1>요소를 선택해서 
+			//선택한 <h1>내용</h1>요소가 숨겨져 있으면  1초만에 점점 선명해지면서 노출되게 효과를 주고
+			//선택한 <h1>내용</h1>요소가 노출되어 있으면 1초만에 점점 투명해지면서 숨기게 하는 효과를 주자
+			/*
+			$("#btn3").click(() => $("h1").fadeToggle(1000));
+			*/
+
+		  //<div class="btn-group"></div>부모요소 선택해서 가져와
+			//자식 모든 <button>요소들에  click이벤트 등록 합니다.
+			//사용자가 <button>중 하나의 요소를 클릭하면 이벤트 핸들러 function이 실행되게 선언
+			$(".btn-group").on("click","button",function(){   
+
+					//클릭이벤트가 발생한 <button>3개 중 하나를 선택해서 가져와
+					//선택한 <button>의 id속성값을 얻어내서 id변수에 저장
+					let id = 	$(this).attr("id");
+
+					//<button id="btn1">fadeOut</button>을 클릭했다면?  조건문
+					if(id === "btn1"){
+							//<h1>요소를 선택해 1초만에 점점 투명해 지면서 숨기는 효과 주기 
+							$("h1").fadeOut(1000);
+					
+					}else if(id == "btn2"){	//<button id="btn2">fadeIn</button>을 클릭했다면?   조건문
+							//<h1>요소를 선택해 1초만에 점점 선명해 지면서 노출되게 하는 효과 주자
+							$("h1").fadeIn(1000);
+					
+					}else{//<button id="btn3">fadeToggle<button>을 클릭했다면? 조건문
+							//선택한 <h1>내용</h1>요소가 숨겨져 있으면  
+							//1초만에 점점 선명해지면서 노출되게 효과를 주고
+							//선택한 <h1>내용</h1>요소가 노출되어 있으면 
+							//1초만에 점점 투명해지면서 숨기게 하는 효과를 주자
+							$("h1").fadeToggle(1000);
+					}
+				});
+
+
+			
+		});
+	</script>
+</head>
+<body>
+	<div class="btn-group">
+		<button id="btn1">fadeOut</button>
+		<button id="btn2">fadeIn</button>
+		<button id="btn3">fadeToggle</button>
+	</div>
+	<h1>내용</h1>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

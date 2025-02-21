@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<style>
+		 h1{ width: 50px;   height: 30px;   background-color: red;  font-size: 100%; }
+	</style>
+</head>
+<body>
+	<button id="btn1">toggle</button>
+	<h1>내용</h1>
+	
+	<script type="text/javascript">
+		//<button id="btn1">toggle</button> 요소를 선택해서 click이벤트 등록
+		$("#btn1").on("click", test);
+
+		function test(){
+			//<h1>내용</h1>선택해서 숨겨져 있는 요소이면 다시 노출시키고,
+			//노출되어 있는 요소이면 다시 숨기는 효과를 주는 메소드 호출
+			$("h1").toggle("fast");
+		}
+
+
+		/*
+			toggle() 메소드
+			- 선택한 요소가 숨겨져 있는 요소이면 효과속도에 맞춰 다시 노출시키는효과를 주고,
+			  선택한 요소가 노출되어 있으면 효과속도에 맞춰 다시 숨겨지게하는효과를 주는 메소드 
+			- 기본문법
+					$("요소선택").toggle("효과속도",콜백함수);
+		*/
+	
+	
+		
+		
+			
+	
+	</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

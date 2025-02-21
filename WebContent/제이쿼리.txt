@@ -368,7 +368,7 @@
 			    
 			    -------------- jq_event1_4_test.html     로딩 이벤트를 등록하는 단독이벤트 등록메소드  ready() , load() 메소드
 			    
-***유효성체크시 필요-------------- jq_event1_5_test.html     <a>, <form>태그에 클릭이벤트 적용시 기본이벤트 차단하기    
+***유효성체크시 필요 -------------- jq_event1_5_test.html     <a>, <form>태그에 클릭이벤트 적용시 기본이벤트 차단하기    
 			  
 			  	-------------- jq_event1_6_test.html     mouseover, mouseout, hover 이벤트 등록  
 			  
@@ -379,23 +379,23 @@
  				
  				-------------- jq_event1_9_test.html     scroll 이벤트 등록 
  				
- 				-------------- jq_event2_1_test.html     focus , blur , focusin,  focusout 이벤트 등록 
+***유용 			-------------- jq_event2_1_test.html     focus , blur , focusin,  focusout 이벤트 등록 
  				
  				
  				
- 				-------------- jq_event2_2_test.html    키보드로 마우스 이벤트 대응하기 
+ 				-------------- jq_event2_2_test.html    키보드로 마우스 이벤트 대응하기  	: ***mouseover랑 focus랑 같이 쓰도록***
  
  				-------------- jq_event2_3_test.html    change()
  
- 			   -------------- jq_event2_4_test.html    keydown(),  keyup(), keypress() 이벤트 등록  메소드
+ 			    -------------- jq_event2_4_test.html    keydown(),  keyup(), keypress() 이벤트 등록  메소드
  			   
-			   -------------- jq_event2_5_test.html    이벤트를 발생 시킨 요소 얻기  $(this) , 이벤트를 발생시킨 요소의 index얻기 index()메소드
+***중요			-------------- jq_event2_5_test.html    이벤트를 발생 시킨 요소 얻기  $(this) , 이벤트를 발생시킨 요소의 index얻기 index()메소드
 			   	
-                -------------- jq_event2_6_test.html   그룹 이벤트 등록 메서드  
+                -------------- jq_event2_6_test.html    그룹 이벤트 등록 메서드  : 라이브이벤트 등록
                 
-                -------------- jq_event2_7_test.html   그룹 이벤트 등록 메서드
+                -------------- jq_event2_7_test.html    그룹 이벤트 등록 메서드 : delegate(), one()
                 
-                -------------- jq_event2_8_test.html   그룹 이벤트 등록 메서드를 이벤트가 등록된 요소에서 제거 하는 메서드
+                -------------- jq_event2_8_test.html    그룹 이벤트 등록 메서드를 이벤트가 등록된 요소에서 제거 하는 메서드
                 
                 
                 ----총정리 실습!  글자확대, 축소 버튼 만들기 

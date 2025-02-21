@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<style>
+		h1{  width:300px;  height:200px;  background-color: yellow; } 
+	</style> 
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			//"<h1>내용</h1>" 요소를 선택해서 h1변수에저장
+			let h1 = $("h1");
+
+			//slideUp 버튼을 선택해 click이벤트 등록 
+			$("button:first").on("click" ,() => {
+				 //<h1>요소영역을 1초만에 위로 접으면서 숨기는 효과를 주는 메소드 호출
+				 h1.slideUp(1000);
+			});
+			//slideDown버튼을 선택해 click이벤트 등록
+			$("button:eq(1)").click(function(){
+				//<h1>요소영역을 3초만에 아래로 펼쳐지며 노출되게 효과를 주는 메소드 호출
+				h1.slideDown(3000);
+			});
+			//slideToggle버튼을 선택해 click이벤트 등록
+			//선택한 <h1>요소영역이 접혀있으면 천천히 아래로 노출되어 펼쳐지며
+			//선택한 <h1>요소영역이 펼쳐져 있으면 천천히 위로 접으면서 숨겨지게 하는 메소드 호출
+			$("#btn3").click(() =>  h1.slideToggle("slow") );
+			
+		});
+	</script>
+	
+</head>
+<body>
+	<button id="btn1">slideUp</button>
+	<button id="btn2">slideDown</button>
+	<button id="btn3">slideToggle</button>
+	<h1>내용</h1>
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
+
+

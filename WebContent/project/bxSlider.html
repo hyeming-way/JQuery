@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	
+	
+	<!-- bxSlider 플러그인 설치 라이브러리 css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+   
+    <!-- 제이쿼리 기본 설치 라이브러리 js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   
+    <!-- bxSlider 플러그인 설치 라이브러리 js -->
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	
+	 <script>
+	 /*
+	 	bxSlider 플러그인 이란?
+	 		여러개의 배너에 슬라이드 기능을 간편하게 적용할수 있는 플러그인.
+	 
+	 	bxSlider 플러그 사용 문법
+	 		참조변수 = $("슬라이드 기능을 설정할 요소영역선택").bxSlider({속성명:값, 속성명2:값}); 
+	 */
+      $(document).ready(function(){
+    	  
+       var div  = $(".bxslider").bxSlider({
+        						 //슬라이드 이동 방향을 설정하는 mode속성으로
+        						 //3개의 값중에 하나를 설정할수 있습니다.
+        						 //"horizontal" 수평방향으로 슬라이드가 흐르게 설정하는 값
+        						 //"vertical" 수직방향으로 슬라이드가 흐르게 설정하는 값
+        						 //"fade" 투명하게 사라지면서 선명하게 보이게 하면서 슬르이드가 흐르게 하는 값
+        						 mode : "horizontal",
+        	
+        						 //슬라이드의 자동전환 여부 설정하는 속성 auto
+        						 //값 -> true (자동전환함) , false(자동전환안함)
+        						 auto : true,
+        						 
+        						 //슬라이드의 전환속도를 설정하는 speed속성으로
+        						 //값은  밀리초 단위의 값을 입력합니다.
+        						 //설정하지 않으면 기본값은 500이므로 0.5초 간격으로 슬라이드가 전환됨
+        						 speed : 1000,
+        						 
+        						 //슬라이드 마다(사진영역 마다) 너비값을 같게 설정하는 속성 slideWidth
+        						 //값은 숫자 px값을 넣어 주시면 됩니다.  기본값은 0 입니다. 
+        						 slideWidth : 600,
+        						 
+        						 //슬라이드의 자동전환을 하기위한 >= 컨트롤 추가할것인지 여부 설정하는
+        						 //autoControls 속성
+        						 //값 -> true  >= 컨트룰 추가한다 ,  false  >= 컨트롤 추가안함 
+        						 autoControls : true,
+        						 
+        						 //현재 화면에 보여지는 슬라이드의 이미지영역을 알리는 불릿(동그라미버튼)
+        						 //노출 여부 설정 pager속성
+        						 //값 true (노출),  false(노출안함)
+        						 //기본값은 true
+        						 pager : true
+        						 
+        				
+ 
+        						});
+       
+       
+       $("#prev").on("click",function(){
+    	   
+    	   //위 div변수에 저장된 div요소영역을 선택해서 
+    	   //div영역안에 있는 슬라이드 영역을 한단계 이전 슬라이드 영역으로 이동되게 설정 
+    	   div.goToPrevSlide();
+    	   
+       });
+       
+       $("#next").click(function(){
+    	   
+    	   div.goToNextSlide();
+    	   
+       });       
+      });
+    </script>	
+		
+</head>
+<body>
+	
+	<div class="bxslider">
+		<div><img src="images/pic_1.jpg"></div>
+		<div><img src="images/pic_2.jpg"></div>
+		<div><img src="images/pic_3.jpg"></div>	
+	</div>
+		<button id="prev">이전</button>
+		<button id="next">다음</button>
+	
+</body>
+</html>
+
+
+
+
+
+
