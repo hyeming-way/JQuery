@@ -1,10 +1,10 @@
-/*±âº» ·¹ÀÌ¾Æ¿ô*/
+/*ï¿½âº» ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½*/
 
-/* Çì´õ ¿µ¿ª¿¡ ·Î°íÀÌ¹ÌÁö, ·Î±×ÀÎ Æû, À¯Æ¿ ¸Þ´ºµé, GNB, ÀüÃ¼¸Þ´º, ¿À´Ã³¯Â¥Ç¥±â ¼ø¼­´ë·Î Àû¿ë ÇÔ. */
+/* ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½, ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½Æ¿ ï¿½Þ´ï¿½ï¿½ï¿½, GNB, ï¿½ï¿½Ã¼ï¿½Þ´ï¿½, ï¿½ï¿½ï¿½Ã³ï¿½Â¥Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½. */
 
-/* id°¡ wrapÀÎ <div>ÅÂ±× È­¸é ÀüÃ¼¸¦ ¼±ÅÃÇÏ¿© CSS */
+/* idï¿½ï¿½ wrapï¿½ï¿½ <div>ï¿½Â±ï¿½ È­ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ CSS */
 #wrap {
-/* 	È­¸é ÀüÃ¼ ³Êºñ ¼³Á¤ */
+/* 	È­ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ */
 	width: 1003px;
 	margin: 0 auto;
 	background-color: #fff;
@@ -30,16 +30,16 @@
 	padding: 15px 0 0 350px;
 }
 
-/*±âº» ±Û²Ã ¹× ¸µÅ© ÅØ½ºÆ® ²Ù¹Ì±â*/
+/*ï¿½âº» ï¿½Û²ï¿½ ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ø½ï¿½Æ® ï¿½Ù¹Ì±ï¿½*/
 body {
-	font: 12px gulim, "±¼¸²", sans-serif;
+	font: 12px gulim, "ï¿½ï¿½ï¿½ï¿½", sans-serif;
 	color: #333;
 	background-color: #000;
 	min-width: 1003px;
 }
 
 select, input, textarea, button {
-	font: 12px gulim, "±¼¸²", sans-serif;
+	font: 12px gulim, "ï¿½ï¿½ï¿½ï¿½", sans-serif;
 	color: #333;
 }
 
@@ -61,14 +61,14 @@ a:hover, a:focus {
 	text-indent: -9999px;
 }
 
-/*Çì´õ ¿µ¿ª*/
+/*ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 #header h1 {
 	position: absolute;
 	left: 36px;
 	top: 53px;
 }
 
-/*·Î±×ÀÎ ¿µ¿ª*/
+/*ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 .login_wrap {
 	position: relative;
 }
@@ -136,7 +136,7 @@ a:hover, a:focus {
 	margin-left: 20px;
 }
 
-/*À¯Æ¿¸Þ´º ¿µ¿ª*/
+/*ï¿½ï¿½Æ¿ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 #util_menu dd {
 	float: left;
 	padding: 0 5px;
@@ -172,7 +172,7 @@ a:hover, a:focus {
 	padding-left: 5px;
 }
 
-/*GNB ¿µ¿ª*/
+/*GNB ï¿½ï¿½ï¿½ï¿½*/
 #gnb {
 	position: absolute;
 	top: 175px;
@@ -219,7 +219,7 @@ a:hover, a:focus {
 	margin-left: 438px;
 }
 
-/*ÀüÃ¼ ¸Þ´º ¿µ¿ª*/
+/*ï¿½ï¿½Ã¼ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 #total_btn {
 	position: absolute;
 	bottom: 18px;
@@ -257,9 +257,9 @@ a:hover, a:focus {
 	right: 16px;
 }
 
-/*¿À´Ã ³¯Â¥ ¿µ¿ª*/
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½*/
 #date_wrap {
-	font-family: "nanum Gothic", Malgun Gothic, "¸¼Àº°íµñ", sans-serif;
+	font-family: "nanum Gothic", Malgun Gothic, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", sans-serif;
 	font-weight: bold;
 	color: #aaa;
 	position: absolute;
@@ -277,7 +277,7 @@ a:hover, a:focus {
 	padding: 15px;
 }
 
-/*Äü¸Þ´º*/
+/*ï¿½ï¿½ï¿½Þ´ï¿½*/
 #quick_menu {
 	width: 95px;
 	text-align: center;
@@ -286,7 +286,7 @@ a:hover, a:focus {
 	right: -96px;
 }
 
-/*¹Ù´Ú¿µ¿ª*/
+/*ï¿½Ù´Ú¿ï¿½ï¿½ï¿½*/
 #inner_footer h3.footer_logo {
 	position: absolute;
 	left: 35px;
